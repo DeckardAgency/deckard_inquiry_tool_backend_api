@@ -1,0 +1,65 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}Client Responded - Inquiry #{{ inquiry.inquiryNumber }}{% endblock %}
+
+{% block header %}Client Response Received{% endblock %}
+
+{% block content %}
+    <p>A client has responded to an information request for inquiry <strong class="highlight">#{{ inquiry.inquiryNumber }}</strong>.</p>
+
+    <div class="alert alert-info">
+        <strong>Action Required:</strong> Please review the client's response and accept or request additional information.
+    </div>
+
+    <h3>Inquiry Details</h3>
+    <table>
+        <tr>
+            <th>Inquiry Number</th>
+            <td>{{ inquiry.inquiryNumber }}</td>
+        </tr>
+        <tr>
+            <th>Client</th>
+            <td>{{ inquiry.user.fullName|default('N/A') }} ({{ inquiry.user.email|default('N/A') }})</td>
+        </tr>
+        {% if inquiry.user.client %}
+        <tr>
+            <th>Company</th>
+            <td>{{ inquiry.user.client.name|default('N/A') }}</td>
+        </tr>
+        {% endif %}
+    </table>
+
+    <h3>Part Details</h3>
+    <table>
+        <tr>
+            <th>Part Number</th>
+            <td>{{ part.partNumber|default('N/A') }}</td>
+        </tr>
+        <tr>
+            <th>Part Name</th>
+            <td>{{ part.partName }}</td>
+        </tr>
+    </table>
+
+    <h3>Client's Response</h3>
+    <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #28a745; margin: 15px 0;">
+        {{ message.messageText|nl2br }}
+    </div>
+
+    {% if message.mediaItems|length > 0 %}
+    <p><strong>Attachments:</strong> {{ message.mediaItems|length }} file(s) attached</p>
+    {% endif %}
+
+    <p>Please review the response in the admin panel:</p>
+{% endblock %}
+
+{% block cta %}
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="{{ viewUrl }}" class="btn" style="color: #ffffff;">Review Response</a>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <p>This is an automated notification from the Deckard Inquiry Management System.</p>
+    <p>&copy; {{ "now"|date('Y') }} Deckard. All rights reserved.</p>
+{% endblock %}

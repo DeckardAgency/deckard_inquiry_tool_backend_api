@@ -1,0 +1,72 @@
+{# emails/customer/inquiry_status_changed.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .email-content {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .email-content p {
+            margin: 0 0 16px 0;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #e3f2fd;
+            color: #1976d2;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .signature {
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <p>Dear {{ user ? user.fullName : 'Valued Customer' }},</p>
+
+            <p>The status of your inquiry #{{ inquiry.inquiryNumber }} has been updated.</p>
+
+            <p>
+                <strong>Previous Status:</strong> <span class="status-badge">{{ previousStatus|replace({'_': ' '})|title }}</span><br>
+                <strong>New Status:</strong> <span class="status-badge">{{ status|replace({'_': ' '})|title }}</span>
+            </p>
+
+            <p>You can view the full inquiry details and any updates here: <a href="{{ base_url }}/inquiries/{{ inquiry.id }}">View Inquiry Details</a></p>
+
+            <p>If you have any questions about this status change, please don't hesitate to contact our support team.</p>
+
+            <div class="signature">
+                <p>Thank you for choosing Deckard.</p>
+                <p>Sincerely,<br>The Deckard Team</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

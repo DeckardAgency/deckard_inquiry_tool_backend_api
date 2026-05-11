@@ -1,0 +1,42 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}Order Completed{% endblock %}
+
+{% block header %}Order #{{ order.orderNumber }} Has Been Completed{% endblock %}
+
+{% block content %}
+    <p>Great news! The order <span class="highlight">#{{ order.orderNumber }}</span> has been successfully completed.</p>
+
+{#    <div class="status-info" style="background-color: #d1e7dd; color: #0f5132; padding: 15px; border-radius: 5px; margin: 20px 0;">#}
+{#        <p style="margin: 0;"><strong>✅ Order Completed Successfully</strong></p>#}
+{#        <p style="margin: 5px 0 0 0;">The entire order lifecycle has been completed. The customer has received their items.</p>#}
+{#    </div>#}
+
+{#    <div class="completion-summary" style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">#}
+{#        <h3>Order Summary:</h3>#}
+{#        <p><strong>Order Number:</strong> {{ order.orderNumber }}</p>#}
+{#        <p><strong>Customer:</strong> {{ order.user.fullName }} ({{ order.user.email }})</p>#}
+{#        <p><strong>Total Value:</strong> €{{ totalAmount|number_format(2, '.', ',') }}</p>#}
+{#        <p><strong>Order Date:</strong> {{ order.createdAt|date('Y-m-d') }}</p>#}
+{#        <p><strong>Completion Date:</strong> {{ 'now'|date('Y-m-d') }}</p>#}
+{#        <p><strong>Total Processing Time:</strong> {{ order.createdAt|date_diff('now')|date('%a days') }}</p>#}
+{#    </div>#}
+
+{#    <p>Post-completion actions to consider:</p>#}
+{#    <ul>#}
+{#        <li>Request customer feedback or review</li>#}
+{#        <li>Update inventory records if needed</li>#}
+{#        <li>Analyze order performance metrics</li>#}
+{#        <li>Consider follow-up marketing opportunities</li>#}
+{#    </ul>#}
+
+{#    <div style="background-color: #e7f3ff; padding: 15px; border-radius: 5px; margin-top: 20px;">#}
+{#        <p style="margin: 0;"><strong>💡 Tip:</strong> This is a great time to reach out to the customer for feedback or to inform them about related products they might be interested in.</p>#}
+{#    </div>#}
+{% endblock %}
+
+{#{% block cta %}#}
+{#    <p style="text-align: center; margin-top: 30px;">#}
+{#        <a href="{{ base_url }}/admin/orders/{{ order.id }}" class="btn" style="background-color: #198754;">View Complete Order History</a>#}
+{#    </p>#}
+{#{% endblock %}#}

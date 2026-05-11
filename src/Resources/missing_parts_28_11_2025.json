@@ -1,0 +1,172 @@
+{
+  "parts": [
+    {
+      "name": "airf-01448",
+      "slug": "airf-01448",
+      "partNo": "AIRF-01448",
+      "shortDescription": "FREQUENCY CONVERTER P66 0,37kW 3AC 380-500V X2X",
+      "unit": "piece",
+      "price": 390.51,
+      "weight": "2,7kg",
+      "technicalDescription": "Mains input voltage 3x 380 VAC -15% to 500 VAC +10% ; Frequency 50 to 60 Hz ±5% ; Apparent power (at 500 VAC) 1.4 kVA ; max. app. Short-circuit current (lsc) 5 kA Z ; Inrush current max. 10 A Z ; Mains current ; at 380 VAC 2.1 A Z ; at 500 VAC 1.6 A Z ; Power loss at rated load and rated switching frequency 28 W",
+      "machineText": "current weaving machines FX 6.1, FX 8.0, FX 10, RX 8.1, RX 8.II",
+      "statistic": "ET"
+    },
+    {
+      "name": "airf-01455",
+      "slug": "airf-01455",
+      "partNo": "AIRF-01455",
+      "shortDescription": "FREQUENCY CONVERTER P66 4,0 kW, 3AC 380-500V, X2X",
+      "unit": "piece",
+      "price": 711.28,
+      "weight": "2,3kg",
+      "technicalDescription": "Mains input voltage 3x 380 VAC -15% to 500 VAC +10% ; Frequency 50 to 60 Hz ±5% ; Apparent power (at 500 VAC) 9.2 kVA ; max. app. Short-circuit current (lsc) 5 kA Z ; Inrush current max. 10 A Z ; Mains current ; at 380 VAC 13.7 A Z ; at 500 VAC 10.6 A Z ; Power loss at rated load and rated switching frequency 112 W",
+      "machineText": "current weaving machines FX 6.1, FX 8.0, FX 10, RX 8.1, RX 8.II",
+      "statistic": "ET"
+    },
+    {
+      "name": "aivs-01403",
+      "slug": "aivs-01403",
+      "partNo": "AIVS-01403",
+      "shortDescription": "CENTRAL PROCESSING UNIT CP1382 X20, Ethernet, Powerlink",
+      "unit": "piece",
+      "price": 1237.32,
+      "weight": "0,381kg",
+      "technicalDescription": "X20CP1382; X20 Zentraleinheit,; X86 400 CPU,; 128 MByte DDR2 RAM, 8 kByte SRAM,; On board Flash Drive 1GByte",
+      "machineText": "old weaving machines FX 6.1, FX 8.0, FX 10.0, RX 8",
+      "statistic": "ET"
+    },
+    {
+      "name": "aivs-01445",
+      "slug": "aivs-01445",
+      "partNo": "AIVS-01445",
+      "shortDescription": "COMPACT-S CPU CP 0483 X20 Ethernet, Powerlink",
+      "unit": "piece",
+      "price": 956.55,
+      "weight": "0,075kg",
+      "technicalDescription": "ARM Cortex-A9 processor with 500 MHz and integrated I/O processor; POWERLINK with poll response chaining on board; Ethernet on board; 2x USB on board; 256 MByte DDR3 SDRAM main memory; 1 GByte flash drive on board",
+      "machineText": "current weaving machines FX 6.1, FX 8.0, FX 10, RX 8.1, RX 8.II",
+      "statistic": "ET"
+    },
+    {
+      "name": "aivv-01161",
+      "slug": "aivv-01161",
+      "partNo": "AIVV-01161",
+      "shortDescription": "POWER PANEL T30 7,0\" WVGA color Touch",
+      "unit": "piece",
+      "price": 1001.1,
+      "weight": "0,683kg",
+      "technicalDescription": "Nominal voltage 24 VDC; Max. current at nominal voltage 230 mA; Max. power consumption 5.5 W; Voltage range 8 to 32 VDC",
+      "machineText": null,
+      "statistic": "ET"
+    },
+    {
+      "name": "vyc-01897c",
+      "slug": "vyc-01897c",
+      "partNo": "VYC-01897C",
+      "shortDescription": "WEFT COMPENSATOR COMPLETE",
+      "unit": "piece",
+      "price": 0.0,
+      "weight": "0.023 kg",
+      "technicalDescription": "WEFT COMPENSATOR; GUIDE WHEEL WITH BEARING; CLAMP",
+      "machineText": null,
+      "statistic": null
+    },
+    {
+      "name": "vyc-01971a",
+      "slug": "vyc-01971a",
+      "partNo": "VYC-01971A",
+      "shortDescription": "EXCENTER ROLL D50,W. BOLT;SYSTEM 2",
+      "unit": "piece",
+      "price": 8.39,
+      "weight": "0,08kg",
+      "technicalDescription": "PLUG; EXCENTER ROLL; GROOVED BALL BEARING; LOCKING RING",
+      "machineText": null,
+      "statistic": "VT"
+    },
+    {
+      "name": "vyc-02099a",
+      "slug": "vyc-02099a",
+      "partNo": "VYC-02099A",
+      "shortDescription": "ALPHA-6 BEARING BLOCK, LEVER;SYSTEM 2",
+      "unit": "piece",
+      "price": 0.0,
+      "weight": "0.732 kg",
+      "technicalDescription": "BEARING BLOCK; CONTROL LEVER WIDE; LOCKING RING; GROOVED BALL BEARING; EXCENTER ROLL W. BOLT SYSTEM 2; SEALING WASHER; COVER DISC; SPECIAL WASHER; CONNECTING ROD",
+      "machineText": "weaving machine alpha 6.0",
+      "statistic": "VT"
+    },
+    {
+      "name": "vyc-02342b",
+      "slug": "vyc-02342b",
+      "partNo": "VYC-02342B",
+      "shortDescription": "FX ALPHA DRIVING BOCK, LEVER;SYSTEM 2",
+      "unit": "piece",
+      "price": 0.0,
+      "weight": "0.654 kg",
+      "technicalDescription": "complete ?",
+      "machineText": "weaving machine Fxa 6.0",
+      "statistic": "VT"
+    },
+    {
+      "name": "vyc-02344a",
+      "slug": "vyc-02344a",
+      "partNo": "VYC-02344A",
+      "shortDescription": "EXCENTER ROLL D45,W. BOLT;SYSTEM 2",
+      "unit": "piece",
+      "price": 7.58,
+      "weight": "0.000 kg",
+      "technicalDescription": "PLUG; EXCENTER ROLL D45; GROOVED BALL BEARING; LOCKING RING",
+      "machineText": "weaving machine Fxa 6.0",
+      "statistic": "VT"
+    },
+    {
+      "name": "z4t-06524",
+      "slug": "z4t-06524",
+      "partNo": "Z4T-06524",
+      "shortDescription": "FOAM WASHER D113 X D48 X 6",
+      "unit": "piece",
+      "price": 0.68,
+      "weight": "0,003kg",
+      "technicalDescription": "FOAM WASHER",
+      "machineText": null,
+      "statistic": "BT"
+    },
+    {
+      "name": "z4t-06550",
+      "slug": "z4t-06550",
+      "partNo": "Z4T-06550",
+      "shortDescription": "FOAM WASHER;D119 X D48 X 6",
+      "unit": "piece",
+      "price": 0.74,
+      "weight": "0.004 kg",
+      "technicalDescription": "FOAM PLASTICS RING DOUBLE LAYER",
+      "machineText": null,
+      "statistic": "BT"
+    },
+    {
+      "name": "zme-01198c",
+      "slug": "zme-01198c",
+      "partNo": "ZME-01198C",
+      "shortDescription": "MODUL FU1 Twintape",
+      "unit": "piece",
+      "price": 359.59,
+      "weight": "0,7kg",
+      "technicalDescription": "3x 210 VAC; 0,4 A; 50Hz",
+      "machineText": "Lin/Twin Tape winding machine",
+      "statistic": "ET"
+    },
+    {
+      "name": "zme-01199c",
+      "slug": "zme-01199c",
+      "partNo": "ZME-01199C",
+      "shortDescription": "MODUL FU2 Twintape",
+      "unit": "piece",
+      "price": 374.61,
+      "weight": "0,8kg",
+      "technicalDescription": "3x 210 VAC; 0,4 A; 50Hz",
+      "machineText": "Twintape windingmachine",
+      "statistic": "ET"
+    }
+  ]
+}

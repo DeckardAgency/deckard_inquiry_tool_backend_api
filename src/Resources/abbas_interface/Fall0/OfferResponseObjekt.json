@@ -1,0 +1,115 @@
+//Pfad: ${ABASInterfaceRoot}/OfferRes/${YYYYMMDD.hhmmss}-${portalRefID}.json
+{
+    headData  :{
+    
+        customerID : "400000",
+        portalRefID : "Inq-400000-23-1234567890",
+        ABASRefID : "(9640,3,0)", //intern String mit ca 30 chars
+        ABASOfferID : "EA1234567", //EA + 7 stellen; AngebotsNr
+        infoText : "Standard Text Baustein wie zb: Remaining Parts still in progress",
+        //DeadlineDay: "20230711" //datum format YYYYMMDD + x Tage wenn das der Kunde sehen soll, DeadlineDay == "WiedervorlageDatum" im ABAS --> RemindAfterDays //diese Info nicht an den Kunden
+    },
+    articlesSuccess : //Als Grün ausgewählte Artikel
+    [
+        {
+            articleNbr : "Z4R-10463A", //ArticleNr | AREPL | TEXT | ALOSEBGR 
+            portArtRefID : "1",
+            pcs : 1.0  //Stück
+            unit : "pc", //Einheit
+            name : "Z4R-10463A xxxxxxx", //bezeichnung
+            ABASRowRefID : "", //Abas Zeilen referenz Nummer
+            pos : "POS 125", //nummber, to sort
+            price : 99.9999, //Einzelstückpreis Angedruckt Rabattiert, auf 4 Nachkommastellen senden aber im Portal auf 2 komma stellen (Kaufmännische Rundung),
+            discount : "-20",//% //den Discount im ABAS muss für Kunden mitausgewiesen werden
+        },
+        
+        // NACHRUEST NORD WICKLER Replacement
+        ,{
+            articleNbr : "ALOSEBGR", //ArticleNr | AREPL | TEXT | ALOSEBGR
+            portArtRefID : "2",
+            pcs : 10.0 
+            unit : "",
+            name : "BWWA-01108A - NACHRUEST NORD WICKLER", //bezeichnung
+            ABASRowRefID : "",
+            pos : "POS 126.1", 
+            price : 99.9999,
+            discount : "-20",
+        }
+        ,{
+            articleNbr : "XXX-12345", //ArticleNr | AREPL | TEXT | ALOSEBGR
+            portArtRefID : "2",
+            pcs : 10.0 
+            unit : "",
+            name : "WICKLER Teil1", //bezeichnung
+            ABASRowRefID : "",
+            pos : "POS 126.2", 
+            price : 99.9999,
+            discount : "-20",
+        }
+        ,{
+            articleNbr : "XXX-12346", //ArticleNr | AREPL | TEXT | ALOSEBGR
+            portArtRefID : "2",
+            pcs : 20.0 
+            unit : "",
+            name : "WICKLER Teil2", //bezeichnung
+            ABASRowRefID : "",
+            pos : "POS 126.3", 
+            price : 99.9999,
+            discount : "-20",
+        }
+        ,{
+            articleNbr : "TEXT", //ArticleNr | AREPL | TEXT | ALOSEBGR
+            portArtRefID : "2",
+            pcs : 0 
+            unit : "",
+            name : "ENDE BWWA-01108A", //bezeichnung
+            ABASRowRefID : "",
+            pos : "POS 126.4", 
+            price : 0.0,
+            discount : ""
+        }
+        ,{
+            articleNbr : "AREPL", //ArticleNr | AREPL | TEXT | ALOSEBGR
+            portArtRefID : "2",
+            pcs : 0 
+            unit : "",
+            name : "^REPLACEMENT PART FOR BWWA-01108", //bezeichnung
+            ABASRowRefID : "",
+            pos : "POS 126.5", 
+            price : 0.0,
+            discount : ""
+        }
+        
+        /*
+        ,{
+            articleNbr : "VYC-123456", //This is an example of a red article, this will not be sent back tp CUPO
+            portArtRefID : "3",
+            pcs : 0 
+            unit : "",
+            name : "VYC-123456", //bezeichnung
+            ABASRowRefID : "",
+            pos : "POS 127", 
+            price : 0.0,
+            discount : ""
+        }
+        */
+        
+        ,{
+            articleNbr : "VKD-00000", //This is an example of a dummy article
+            //there can not be a portArtRefID !!!!!
+            pcs : 0 
+            unit : "",
+            name : "This is a dummy article", //bezeichnung
+            ABASRowRefID : "",
+            pos : "POS 127", 
+            price : 0.0,
+            discount : ""
+        },
+        
+        
+        
+        ...
+    ]
+    
+    
+}

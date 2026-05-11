@@ -1,0 +1,67 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}New Order Submitted{% endblock %}
+
+{% block header %}New Order #{{ order.orderNumber }} Submitted{% endblock %}
+
+{% block content %}
+    <p>A new order <span class="highlight">#{{ order.orderNumber }}</span> has been submitted and is awaiting confirmation.</p>
+
+    <div class="order-details" style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+        <h3>Order Information:</h3>
+        <p><strong>Customer:</strong> {{ order.user.fullName }} ({{ order.user.email }})</p>
+        <p><strong>Date:</strong> {{ order.createdAt|date('Y-m-d H:i:s') }}</p>
+        <p><strong>Total Amount:</strong> €{{ order.totalAmount|number_format(2, '.', ',') }}</p>
+
+        {% if order.shippingAddress %}
+            <p><strong>Shipping Address:</strong> {{ order.shippingAddress }}</p>
+        {% endif %}
+
+        {% if order.billingAddress %}
+            <p><strong>Billing Address:</strong> {{ order.billingAddress }}</p>
+        {% endif %}
+
+        {% if order.notes %}
+            <p><strong>Customer Notes:</strong> {{ order.notes }}</p>
+        {% endif %}
+    </div>
+
+    <div class="order-items" style="margin: 20px 0;">
+        <h3>Order Items:</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+            <tr style="background-color: #e9ecef;">
+                <th style="padding: 8px; text-align: left; border-bottom: 2px solid #dee2e6;">Item</th>
+                <th style="padding: 8px; text-align: center; border-bottom: 2px solid #dee2e6;">Quantity</th>
+                <th style="padding: 8px; text-align: right; border-bottom: 2px solid #dee2e6;">Unit Price</th>
+                <th style="padding: 8px; text-align: right; border-bottom: 2px solid #dee2e6;">Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in order.items %}
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #dee2e6;">{{ item.product.name }}</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #dee2e6;">{{ item.quantity }}</td>
+                    <td style="padding: 8px; text-align: right; border-bottom: 1px solid #dee2e6;">€{{ item.unitPrice|number_format(2) }}{% if item.isCustomPrice %} *{% endif %}</td>
+                    <td style="padding: 8px; text-align: right; border-bottom: 1px solid #dee2e6;">€{{ item.subtotal|number_format(2) }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3" style="padding: 8px; text-align: right; font-weight: bold;">Total:</td>
+                <td style="padding: 8px; text-align: right; font-weight: bold;">€{{ order.totalAmount|number_format(2) }}</td>
+            </tr>
+            </tbody>
+        </table>
+        {% if order.items|filter(item => item.isCustomPrice)|length > 0 %}
+            <p style="font-size: 12px; color: #6c757d; margin-top: 10px;">* Custom pricing applied</p>
+        {% endif %}
+    </div>
+
+    <p style="color: #28a745; font-weight: bold;">Action Required: Please review and confirm this order.</p>
+{% endblock %}
+
+{% block cta %}
+    <p style="text-align: center; margin-top: 30px;">
+        <a href="{{ base_url }}/admin/orders/{{ order.id }}" class="btn" style="background-color: #28a745;">Review & Confirm Order</a>
+    </p>
+{% endblock %}

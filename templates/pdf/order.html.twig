@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Order {{ order.orderNumber }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        .header {
+            margin-bottom: 30px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .header h1 {
+            margin: 15px 0 0 0;
+            color: #495057;
+            font-size: 24px;
+        }
+
+        .header .subtitle {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #495057;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: table;
+            width: 100%;
+        }
+
+        .info-row {
+            display: table-row;
+        }
+
+        .info-label {
+            display: table-cell;
+            padding: 5px 10px 5px 0;
+            font-weight: bold;
+            color: #6c757d;
+            width: 150px;
+        }
+
+        .info-value {
+            display: table-cell;
+            padding: 5px 0;
+            color: #495057;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-draft { background-color: #e9ecef; color: #495057; }
+        .status-submitted { background-color: #cfe2ff; color: #084298; }
+        .status-confirmed { background-color: #d1ecf1; color: #0c5460; }
+        .status-dispatched { background-color: #fff3cd; color: #856404; }
+        .status-completed { background-color: #d4edda; color: #155724; }
+        .status-canceled { background-color: #f8d7da; color: #721c24; }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .items-table th {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .items-table td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            color: #495057;
+        }
+
+        .items-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .total-section {
+            margin-top: 20px;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .total-row {
+            display: inline-block;
+            width: 300px;
+        }
+
+        .total-label {
+            display: inline-block;
+            width: 200px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .total-value {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+        }
+
+        .notes-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid #dee2e6;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<!-- ENGLISH VERSION -->
+<div class="header">
+    <img src="{{ absolute_url(asset('images/deckard-logo.png')) }}" alt="Deckard" style="height: 90px;">
+    <div>
+        <h1>Order #{{ order.orderNumber }}</h1>
+        <div class="subtitle">Generated on {{ generatedAt|date('d.m.Y H:i') }}</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Order Information</div>
+    <div class="info-grid">
+        <div class="info-row">
+            <div class="info-label">Order Number:</div>
+            <div class="info-value">{{ order.orderNumber }}</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">Status:</div>
+            <div class="info-value">
+                <span class="status-badge status-{{ order.status|lower }}">{{ order.status }}</span>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">Created Date:</div>
+            <div class="info-value">{{ order.createdAt|date('d.m.Y H:i') }}</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">Last Updated:</div>
+            <div class="info-value">{{ order.updatedAt|date('d.m.Y H:i') }}</div>
+        </div>
+        {% if order.isDraft %}
+            <div class="info-row">
+                <div class="info-label">Last Saved:</div>
+                <div class="info-value">{{ order.lastSavedAt|date('d.m.Y H:i') }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Customer Information</div>
+    <div class="info-grid">
+        <div class="info-row">
+            <div class="info-label">Customer Email:</div>
+            <div class="info-value">{{ order.user.email }}</div>
+        </div>
+        {% if order.user.firstname or order.user.lastname %}
+            <div class="info-row">
+                <div class="info-label">Customer Name:</div>
+                <div class="info-value">{{ order.user.firstname }} {{ order.user.lastname }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Addresses</div>
+    <div class="info-grid">
+        {% if order.shippingAddress %}
+            <div class="info-row">
+                <div class="info-label">Shipping Address:</div>
+                <div class="info-value">{{ order.shippingAddress }}</div>
+            </div>
+        {% endif %}
+        {% if order.billingAddress %}
+            <div class="info-row">
+                <div class="info-label">Billing Address:</div>
+                <div class="info-value">{{ order.billingAddress }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Order Items</div>
+    <table class="items-table">
+        <thead>
+        <tr>
+            <th style="width: 40%">Product</th>
+            <th style="width: 15%">SKU</th>
+            <th style="width: 15%" class="text-right">Unit Price</th>
+            <th style="width: 15%" class="text-right">Quantity</th>
+            <th style="width: 15%" class="text-right">Subtotal</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in order.items %}
+            <tr>
+                <td style="text-transform: uppercase">{{ item.product.name }}</td>
+                <td>{{ item.product.partNo }}</td>
+                <td class="text-right">{{ item.unitPrice|number_format(2) }} €</td>
+                <td class="text-right">{{ item.quantity }}</td>
+                <td class="text-right">{{ item.subtotal|number_format(2) }} €</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="total-section">
+        <div class="total-row">
+            <span class="total-label">Total Amount:</span>
+            <span class="total-value">{{ order.totalAmount|number_format(2, ',', '.') }} €</span>
+        </div>
+    </div>
+</div>
+
+{% if order.notes %}
+    <div class="section">
+        <div class="section-title">Order Notes</div>
+        <div class="notes-section">
+            {{ order.notes|nl2br }}
+        </div>
+    </div>
+{% endif %}
+
+<div class="footer">
+    <p>This is a computer-generated document. No signature is required.</p>
+    <p>{{ "now"|date("Y") }} &copy; Deckard. All rights reserved.</p>
+</div>
+
+</body>
+</html>

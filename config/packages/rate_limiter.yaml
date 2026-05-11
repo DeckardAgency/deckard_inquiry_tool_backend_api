@@ -1,0 +1,19 @@
+framework:
+    rate_limiter:
+        # Login endpoint rate limiting - 5 attempts per minute per IP
+        login:
+            policy: 'sliding_window'
+            limit: 5
+            interval: '1 minute'
+
+        # General API endpoints - 100 requests per minute per user/IP
+        api:
+            policy: 'sliding_window'
+            limit: 100
+            interval: '1 minute'
+
+        # Stricter limit for sensitive operations (e.g., password reset)
+        sensitive_operations:
+            policy: 'sliding_window'
+            limit: 3
+            interval: '5 minutes'

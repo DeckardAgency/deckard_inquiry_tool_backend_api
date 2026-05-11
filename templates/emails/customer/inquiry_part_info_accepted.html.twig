@@ -1,0 +1,46 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}Information Accepted - Inquiry #{{ inquiry.inquiryNumber }}{% endblock %}
+
+{% block header %}Information Accepted{% endblock %}
+
+{% block content %}
+    <p>Dear {{ user.firstName|default('Customer') }},</p>
+
+    <p>Great news! The information you provided for inquiry <strong class="highlight">#{{ inquiry.inquiryNumber }}</strong> has been accepted.</p>
+
+    <div class="alert alert-success">
+        <strong>Status Update:</strong> The requested information has been reviewed and accepted by our team.
+    </div>
+
+    <h3>Part Details</h3>
+    <table>
+        <tr>
+            <th>Part Number</th>
+            <td>{{ part.partNumber|default('N/A') }}</td>
+        </tr>
+        <tr>
+            <th>Part Name</th>
+            <td>{{ part.partName }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td><span class="status status-confirmed">Information Accepted</span></td>
+        </tr>
+    </table>
+
+    <p>Your inquiry is now being processed. You will receive further updates as we progress.</p>
+
+    <p>You can view the current status of your inquiry at any time:</p>
+{% endblock %}
+
+{% block cta %}
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="{{ viewUrl }}" class="btn" style="color: #ffffff;">View Inquiry</a>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <p>Thank you for your cooperation.</p>
+    <p>&copy; {{ "now"|date('Y') }} Deckard. All rights reserved.</p>
+{% endblock %}

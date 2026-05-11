@@ -1,0 +1,116 @@
+{# emails/customer/order_dispatched_documents.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .email-content {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .email-content p {
+            margin: 0 0 16px 0;
+        }
+        .documents-list {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .documents-list h3 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+        .documents-list ul {
+            margin: 0;
+            padding: 0 0 0 20px;
+        }
+        .documents-list li {
+            margin: 8px 0;
+            color: #555;
+        }
+        .document-type {
+            color: #888;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .signature {
+            margin-top: 24px;
+        }
+        .notice {
+            margin: 20px 0;
+            padding: 12px 16px;
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            font-size: 13px;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <p>Dear {{ user.fullName }},</p>
+
+            <p>Please find attached the shipping documents for your Deckard order <strong>#{{ order.orderNumber }}</strong>.</p>
+
+            <div class="documents-list">
+                <h3>Attached Documents ({{ documentsCount }}):</h3>
+                <ul>
+                    {% for document in documents %}
+                        <li>
+                            {{ document.originalFilename }}
+                            <span class="document-type">({{ document.documentTypeLabel }})</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="notice">
+                <strong>Note:</strong> Please keep these documents for your records. The invoice is required for customs clearance if applicable.
+            </div>
+
+            <p>You can view your order details online: <a href="{{ base_url }}/orders/{{ order.id }}">View Order</a></p>
+
+            <div class="signature">
+                <p>If you have any questions regarding these documents, please contact our support team at <a href="mailto:{{ supportEmail }}">{{ supportEmail }}</a>.</p>
+                <p>Thank you for your business.</p>
+                <p>Sincerely,<br>The Deckard Team</p>
+            </div>
+
+            <div class="footer">
+                <p>This email was sent to {{ user.email }} regarding order #{{ order.orderNumber }}.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

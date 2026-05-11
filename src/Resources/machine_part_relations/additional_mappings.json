@@ -1,0 +1,542 @@
+[
+  {
+    "partNo": "APXD-01043",
+    "description": "VACUUM CUP SX;SPECIAL-SI",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "APXD-01046",
+    "description": "VACUUM CUP HX;SPECIAL-SI",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "AZEX-01128",
+    "description": "FILTER BELT;L=10m, B=97mm, MESH: 260/4",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZEX-01130",
+    "description": "FILTER BELT L=10m, B=127mm, MESH: 260/40",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZEX-01151",
+    "description": "INDUSTRY CUTTER BLADE WITH;UPRIGHT HEA",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZEX-01152",
+    "description": "INDUSTRY CUTTER BLADE WITH UPRIGHT HEAD 43 X 22,2 X 0,15",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZEX-01165",
+    "description": "FILTER BELT;L=10m, B=97mm, MESH: 152/3",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZEX-01166",
+    "description": "FILTER BELT L=10m, B=127mm, MESH: 152/30",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZEX-01184",
+    "description": "FILTER BELT L=10m, B=157mm, MESH: 152/30",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZEX-01185",
+    "description": "FILTER BELT L=10m, B=157mm, MESH: 260/40",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZEX-01207",
+    "description": "INDUSTRY CUTTER BLADE STRAIGHT;36 X 0,",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZFD-01060",
+    "description": "STEEL DOCTOR BLADE HB;0,20 X 25  (1 PIECE = ROLL 100m)",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "AZFD-01343",
+    "description": "CHAMBER SEAL;D=108MM",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "AZFD-01346",
+    "description": "CHAMBER SEAL;D=108MM",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "AZFD-01430",
+    "description": "FELT SEAL ANILOX ROLL;STRIPE 9.5 X 9.5",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "AZFD-01433",
+    "description": "FELT SEAL FORMAT CYLINDER;STRIPE 9.5 X",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "AZRE-01169",
+    "description": "SCREEN D110 mm",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZRE-01398",
+    "description": "FILTER BLANK D125,3 / MESH 20 / 800my",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZRE-01401",
+    "description": "FILTER BLANK D125,3 / MESH 24/110 / 150my",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZRE-01402",
+    "description": "FILTER BLANK D125,3 / MESH 50/250 / 50my",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZRE-01781",
+    "description": "FILTER BLANK D125,3 / MESH 40/200 / 80my",
+    "category": "starEX"
+  },
+  {
+    "partNo": "AZRE-01921",
+    "description": "FILTER BLANK D125,3 / MESH 80/700 / 36my",
+    "category": "starEX"
+  },
+  {
+    "partNo": "MWSA-13200K",
+    "description": "SHUTTLE REINFORCED;WITH LONGITUDINAL B",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00133",
+    "description": "BRAKE ROLLER WITH BEARING",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00213F",
+    "description": "EXCENTER ROLL COMPLETE WITH BOLT",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00246F",
+    "description": "SL 6 CONCHOID ROLLER DRIVE (6.5\u00b0) FOR REED 10\u00b0",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00247D",
+    "description": "SL 6 CONCHOID ROLLER BRAKE (6,5\u00b0) FOR REED 10\u00b0",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00264C",
+    "description": "SHUTTLE WHEEL WITH BEARING",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00589B",
+    "description": "PRESSURE ROLLER",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00689E",
+    "description": "WEFT BRAKE 22W 4000U/min",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00788A",
+    "description": "RETURN PULLEY COMPLETE WITH FELT",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00794B",
+    "description": "DRIVING ROLL (10\u00b0)",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00848A",
+    "description": "DRIVING ROLL (5\u00b0)",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-00924A",
+    "description": "RETURN PULLEY COMPLETE WITH FELT SHORT",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01259C",
+    "description": "SIDE WASHER LONG WITH SPRINGRING D35",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01399A",
+    "description": "SIDEWASHER WITH SPRINGRING;ID 35 X 120",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01420A",
+    "description": "INSERTION FINGER STOPPING DEVICE WITH WEFT GUIDE AND MAGNET",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01535A",
+    "description": "CREEL BOBBIN BRAKE WITH SPRING",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01839A",
+    "description": "SHUTTLE ROLLER 4\u00b0 COMPLETE SYSTEM 2",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01840",
+    "description": "CONCHOID ROLLER DRIVE 4\u00b0 COMPLETE;SYSTEM 2",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01841A",
+    "description": "CONCHOID BRAKE 4\u00b0 COMPLETE;SYSTEM 2",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01865A",
+    "description": "CERAMIC-INSERTION FINGER WITH FLIPP;FO",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01897C",
+    "description": "WEFT COMPENSATOR COMPLETE",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01971A",
+    "description": "EXCENTER ROLL D50,W. BOLT;SYSTEM 2",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-01973",
+    "description": "DRIVING LEVER, EXCENTER ROLL;SYSTEM 2",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-02044",
+    "description": "SIDE WASHER WITH SPRING RING D35/D115",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-02218",
+    "description": "SHUTTLE WHEEL WITH BEARING D50 X 20;SY",
+    "category": "Looms"
+  },
+  {
+    "partNo": "VYC-02311B",
+    "description": "ROLLER INSERTION FINGER NARROW WITH;WE",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z0C-04597",
+    "description": "GROMMET BAND 2X7 LIFTING BLOCK;FOR 153",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z0C-04603",
+    "description": "GROMMET BAND 2X8 LIFTING BLOCK;FOR 153",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z0C-04614",
+    "description": "GROMMET BAND 85 2X11",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2C-02182B",
+    "description": "CONTROL LEVER WIDE",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2C-03426G",
+    "description": "WEFT COMPENSATOR CERAMIC",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2C-03600G",
+    "description": "SIDE WASHER WITH SPRING RING D35/D115",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2C-04784C",
+    "description": "IMPRESSION ROLLER VALVE PATCH",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z2C-04967B",
+    "description": "PRESSURE ROLL (GUMMED)",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2C-05264C",
+    "description": "IMPRESSION ROLLER_VP",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z2C-05430A",
+    "description": "IMPRESSION ROLLER_VP",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z2C-05431A",
+    "description": "IMPRESSION ROLLER_CP_EO",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z2C-05432",
+    "description": "IMPRESSION ROLLER_BP",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z2O-02884A",
+    "description": "BRACKET ARM",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2O-02885A",
+    "description": "GUIDE BRACKET",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2O-02893",
+    "description": "GUIDE BRACKET",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2O-02924",
+    "description": "BRACKET ARM;WAISTED",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2T-03814",
+    "description": "CERAMIC INSERTION FINGER KURZ",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2U-02505A",
+    "description": "DRIVING LEVER",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z2U-02661",
+    "description": "FLEXIBLE WIRE BAND DOWN SIDE 22",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z3C-03794D",
+    "description": "INSERTION FINGER MOUNTING SUPPORT",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z3C-04857D",
+    "description": "IMPRESSION ROLLER_CP",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z3C-04903C",
+    "description": "IMPRESSION ROLLER_BP;",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z3C-05908C",
+    "description": "IMPRESSION ROLLER_CP_EO",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z3C-05910C",
+    "description": "IMPRESSION ROLLER_BP",
+    "category": "Flexographic Printing"
+  },
+  {
+    "partNo": "Z3C-05918",
+    "description": "WEFT GUIDE;WITH MAGNET",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z3F-00524",
+    "description": "BRACKET FOR WEFT TAPE",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z3F-00541",
+    "description": "BRACKET FOR WEFT BRAKE;R350",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z3S-00070A",
+    "description": "ROTOR KNIFE",
+    "category": "Recycling"
+  },
+  {
+    "partNo": "Z3S-00071D",
+    "description": "STATOR KNIFE",
+    "category": "Recycling"
+  },
+  {
+    "partNo": "Z3S-00138D",
+    "description": "SLIDING SHUTTLE 58/7 (L=18,5)",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z3T-03412B",
+    "description": "NEEDLE SLEEVE ID76/145;21600 needles",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "Z3T-04630A",
+    "description": "NEEDLE SLEEVE ID76/145 40680 NEEDLES",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "Z3T-04632A",
+    "description": "NEEDLE SLEEVE;13560 needles",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "Z3T-04841A",
+    "description": "PUNCHED_TAPE_4MM_100-110_BOTTOM",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "Z3T-05015",
+    "description": "PUNCHED_TAPE_4MM_140_BOTTOM",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "Z3T-05016",
+    "description": "PUNCHED_TAPE_4MM_120-130_BOTTOM",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "Z3T-05017",
+    "description": "PUNCHED_TAPE_4MM_80-90_BOTTOM",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "Z3T-05087A",
+    "description": "PUNCHED_TAPE_4MM_100-110_BOTTOM",
+    "category": "Conversion Lines"
+  },
+  {
+    "partNo": "Z3U-01329E",
+    "description": "PICK-UP FOR WEFT COMPENSATOR",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z3U-02888",
+    "description": "FLEXIBLE WIRE BAND TOP SIDE 22",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4C-04893",
+    "description": "BRAKE LINING WITH  ADHESIVE TAPE;15 X",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4C-05380B",
+    "description": "COMPLETE BRAKE BUSH BACK",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4C-05401",
+    "description": "RETURN PULLEY",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4D-00113A",
+    "description": "BRAKE LINING",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4I-12406",
+    "description": "ROTOR KNIFE",
+    "category": "Recycling"
+  },
+  {
+    "partNo": "Z4I-12407A",
+    "description": "STATOR KNIFE",
+    "category": "Recycling"
+  },
+  {
+    "partNo": "Z4T-04182C",
+    "description": "FOAM WASHER;D113 X D48 X 6",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4T-04425",
+    "description": "STATOR + ROTOR DRIVE COMPLETE",
+    "category": "Recycling"
+  },
+  {
+    "partNo": "Z4T-06249B",
+    "description": "SCREEN D180 152/30 | 132/17 color marking yellow",
+    "category": "starEX"
+  },
+  {
+    "partNo": "Z4T-06250A",
+    "description": "SCREEN D180 152/30 | 260/40 color marking white",
+    "category": "starEX"
+  },
+  {
+    "partNo": "Z4T-06251A",
+    "description": "SCREEN D180 152/30 | 325/39 color marking black",
+    "category": "starEX"
+  },
+  {
+    "partNo": "Z4T-06502",
+    "description": "BOBBIN PICKUP FRONT",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4T-06503",
+    "description": "BOBBIN PICKUP REAR",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4T-06524",
+    "description": "FOAM WASHER D113 X D48 X 6",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4T-06550",
+    "description": "FOAM WASHER;D119 X D48 X 6",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4T-06564",
+    "description": "SCREEN D180 30X150 color marking red",
+    "category": "starEX"
+  },
+  {
+    "partNo": "Z4T-06565",
+    "description": "SCREEN D180 40X200 color marking blue",
+    "category": "starEX"
+  },
+  {
+    "partNo": "Z4T-06843",
+    "description": "HEDDLE  D1,28/350/1080 R/30\u00b0;350",
+    "category": "Looms"
+  },
+  {
+    "partNo": "Z4U-01491A",
+    "description": "COVER DISC",
+    "category": "Looms"
+  },
+  {
+    "partNo": "ZME-01187A",
+    "description": "MODULE FC-STACOFIL 200A  3 x 210V \u00b115%   50/60Hz \u00b15%",
+    "category": "Winders"
+  }
+]

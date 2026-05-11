@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Inquiry {{ inquiry.inquiryNumber }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        .header {
+            margin-bottom: 30px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .header h1 {
+            margin: 15px 0 0 0;
+            color: #495057;
+            font-size: 24px;
+        }
+
+        .header .subtitle {
+            color: #6c757d;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #495057;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: table;
+            width: 100%;
+        }
+
+        .info-row {
+            display: table-row;
+        }
+
+        .info-label {
+            display: table-cell;
+            padding: 5px 10px 5px 0;
+            font-weight: bold;
+            color: #6c757d;
+            width: 150px;
+        }
+
+        .info-value {
+            display: table-cell;
+            padding: 5px 0;
+            color: #495057;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-draft { background-color: #e9ecef; color: #495057; }
+        .status-submitted { background-color: #cfe2ff; color: #084298; }
+        .status-confirmed { background-color: #d1ecf1; color: #0c5460; }
+        .status-dispatched { background-color: #fff3cd; color: #856404; }
+        .status-completed { background-color: #d4edda; color: #155724; }
+        .status-canceled { background-color: #f8d7da; color: #721c24; }
+
+        .machine-block {
+            margin-bottom: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f8f9fa;
+        }
+
+        .machine-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .machine-info {
+            margin-bottom: 15px;
+            color: #6c757d;
+            font-size: 13px;
+        }
+
+        .parts-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: white;
+        }
+
+        .parts-table th {
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            color: #495057;
+            font-size: 13px;
+        }
+
+        .parts-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            color: #495057;
+            font-size: 13px;
+        }
+
+        .parts-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+        }
+
+        .notes-section {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .no-parts-message {
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 3px;
+            color: #6c757d;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .machine-notes {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 3px;
+            padding: 10px;
+            margin-top: 10px;
+            color: #495057;
+            font-size: 13px;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <img src="{{ absolute_url(asset('images/deckard-logo.png')) }}" alt="Deckard" style="height: 90px;">
+    <div>
+        <h1>Inquiry #{{ inquiry.inquiryNumber }}</h1>
+        <div class="subtitle">Generated on {{ generatedAt|date('d.m.Y H:i') }}</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Inquiry Information</div>
+    <div class="info-grid">
+        <div class="info-row">
+            <div class="info-label">Inquiry Number:</div>
+            <div class="info-value">{{ inquiry.inquiryNumber }}</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">Status:</div>
+            <div class="info-value">
+                <span class="status-badge status-{{ inquiry.status|lower }}">{{ inquiry.status }}</span>
+            </div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">Created Date:</div>
+            <div class="info-value">{{ inquiry.createdAt|date('d.m.Y H:i') }}</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label">Last Updated:</div>
+            <div class="info-value">{{ inquiry.updatedAt|date('d.m.Y H:i') }}</div>
+        </div>
+        {% if inquiry.isDraft %}
+            <div class="info-row">
+                <div class="info-label">Last Saved:</div>
+                <div class="info-value">{{ inquiry.lastSavedAt|date('d.m.Y H:i') }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Customer Information</div>
+    <div class="info-grid">
+        <div class="info-row">
+            <div class="info-label">Customer Email:</div>
+            <div class="info-value">{{ inquiry.user.email }}</div>
+        </div>
+        {% if inquiry.user.firstname or inquiry.user.lastname %}
+            <div class="info-row">
+                <div class="info-label">Customer Name:</div>
+                <div class="info-value">{{ inquiry.user.firstname }} {{ inquiry.user.lastname }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Contact Information</div>
+    <div class="info-grid">
+        {% if inquiry.contactEmail %}
+            <div class="info-row">
+                <div class="info-label">Contact Email:</div>
+                <div class="info-value">{{ inquiry.contactEmail }}</div>
+            </div>
+        {% endif %}
+        {% if inquiry.contactPhone %}
+            <div class="info-row">
+                <div class="info-label">Contact Phone:</div>
+                <div class="info-value">{{ inquiry.contactPhone }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">Machines & Parts</div>
+    {% if inquiry.machines is empty %}
+        <div class="no-parts-message">
+            No machines have been added to this inquiry yet.
+        </div>
+    {% else %}
+        {% for machine in inquiry.machines %}
+            <div class="machine-block">
+                <div class="machine-title">
+                    {% if machine.machine %}
+                        {{ machine.machine.articleDescription }}
+                    {% elseif machine.customMachineId %}
+                        Custom Machine: {{ machine.customMachineId }}
+                    {% else %}
+                        Machine
+                    {% endif %}
+                </div>
+
+                {% if machine.machine and machine.machine.articleNumber %}
+                    <div class="machine-info">
+                        <strong>Article Number:</strong> {{ machine.machine.articleNumber }}
+                    </div>
+                {% endif %}
+
+                {% if machine.notes %}
+                    <div class="machine-notes">
+                        <strong>Machine Notes:</strong><br>
+                        {{ machine.notes|nl2br }}
+                    </div>
+                {% endif %}
+
+                {% if machine.products is not empty %}
+                    <table class="parts-table">
+                        <thead>
+                        <tr>
+                            <th style="width: 30%">Part Name</th>
+                            <th style="width: 20%">Part Number</th>
+                            <th style="width: 30%">Description</th>
+                            <th style="width: 20%">Additional Notes</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for part in machine.products %}
+                            <tr>
+                                <td>{{ part.partName }}</td>
+                                <td>{{ part.partNumber|default('N/A') }}</td>
+                                <td>{{ part.shortDescription|default('') }}</td>
+                                <td>{{ part.additionalNotes|default('') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="no-parts-message">
+                        No parts have been added for this machine.
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% if inquiry.notes %}
+    <div class="section">
+        <div class="section-title">Inquiry Notes</div>
+        <div class="notes-section">
+            {{ inquiry.notes|nl2br }}
+        </div>
+    </div>
+{% endif %}
+
+<div class="footer">
+    <p>This is a computer-generated document. No signature is required.</p>
+    <p>{{ "now"|date("Y") }} &copy; Deckard. All rights reserved.</p>
+</div>
+
+</body>
+</html>

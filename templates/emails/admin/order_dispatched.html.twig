@@ -1,0 +1,38 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}Order Dispatched{% endblock %}
+
+{% block header %}Order #{{ order.orderNumber }} Has Been Dispatched{% endblock %}
+
+{% block content %}
+    <p>The order <span class="highlight">#{{ order.orderNumber }}</span> has been successfully dispatched!</p>
+
+    <div class="status-info" style="background-color: #cce5ff; color: #004085; padding: 15px; border-radius: 5px; margin: 20px 0;">
+        <p style="margin: 0;"><strong>📦 Order Dispatched</strong></p>
+        <p style="margin: 5px 0 0 0;">This order is now with the shipping carrier and on its way to the customer.</p>
+    </div>
+
+    <div class="dispatch-details" style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+        <h3>Dispatch Information:</h3>
+        <p><strong>Order Number:</strong> {{ order.orderNumber }}</p>
+        <p><strong>Customer:</strong> {{ order.user.fullName }} ({{ order.user.email }})</p>
+        <p><strong>Dispatch Date:</strong> {{ 'now'|date('Y-m-d H:i:s') }}</p>
+        <p><strong>Shipping Address:</strong><br>{{ order.shippingAddress|nl2br }}</p>
+    </div>
+
+    <p>Important reminders:</p>
+    <ul>
+        <li>Ensure tracking information is updated in the system</li>
+        <li>Monitor delivery status with the carrier</li>
+        <li>Be prepared to handle any delivery issues or customer inquiries</li>
+        <li>Update to "Completed" status once delivery is confirmed</li>
+    </ul>
+
+    <p style="color: #6c757d;">The customer has been notified about the dispatch.</p>
+{% endblock %}
+
+{% block cta %}
+    <p style="text-align: center; margin-top: 30px;">
+        <a href="{{ base_url }}/admin/orders/{{ order.id }}" class="btn" style="background-color: #17a2b8;">Track Order Progress</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,36 @@
+# config/packages/messenger.yaml
+framework:
+    messenger:
+        # Uncomment this to enable failed message handling
+        failure_transport: failed
+
+        transports:
+            # async transport using Doctrine
+            async:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    queue_name: order_notifications
+                retry_strategy:
+                    max_retries: 3
+                    multiplier: 2
+                    delay: 1000
+
+            # Store failed messages for later inspection and retry
+            failed: 'doctrine://default?queue_name=failed'
+
+            # Synchronous transport for testing (messages processed immediately)
+            sync: 'sync://'
+
+        routing:
+            # Route order notification messages to async processing
+            App\Message\OrderCreatedMessage: async
+            App\Message\OrderStatusChangedMessage: async
+            App\Message\InquiryCreatedMessage: async
+            App\Message\InquiryStatusChangedMessage: async
+            App\Message\InquiryPartInfoRequestMessage: sync
+            App\Message\InquiryOfferSentMessage: sync
+            App\Message\InquiryOfferRespondedMessage: sync
+            # For testing: To process messages immediately without running a worker,
+            # you can temporarily change the above to:
+            # App\Message\OrderCreatedMessage: sync
+            # App\Message\OrderStatusChangedMessage: sync

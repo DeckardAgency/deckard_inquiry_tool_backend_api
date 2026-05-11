@@ -1,0 +1,18 @@
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+
+    # configure resolvers
+    resolvers:
+        default:
+            web_path: ~
+
+    # configure filter sets
+    filter_sets:
+        150x84:
+            quality: 100
+            format: webp
+            filters:
+                thumbnail:
+                    size: [ 150, 84 ]  # 16:9 aspect ratio (150÷84 ≈ 1.78)
+                    mode: inset      # Ensures no cropping happens

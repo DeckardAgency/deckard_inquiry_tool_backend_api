@@ -1,0 +1,236 @@
+{# templates/emails/customer/order_status_changed.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #4b6cb7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .status-update {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /* Status-specific colors */
+        .draft { background-color: #e9ecef; color: #495057; }
+        .submitted { background-color: #d1ecf1; color: #0c5460; }
+        .confirmed { background-color: #d4edda; color: #155724; }
+        .dispatched { background-color: #cce5ff; color: #004085; }
+        .completed { background-color: #d1e7dd; color: #0f5132; }
+        .canceled { background-color: #f8d7da; color: #721c24; }
+
+        .order-details {
+            margin: 20px 0;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .item-row {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .item-row:last-child {
+            border-bottom: none;
+        }
+        .total {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: right;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4b6cb7;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .timeline {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .timeline-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .timeline-icon.completed {
+            background-color: #28a745;
+            color: white;
+        }
+        .timeline-icon.current {
+            background-color: #007bff;
+            color: white;
+        }
+        .timeline-icon.pending {
+            background-color: #e9ecef;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Order Status Update</h1>
+    </div>
+
+    <div class="content">
+        <p>Dear {{ user.fullName }},</p>
+
+        <p>We're writing to inform you that the status of your order has been updated.</p>
+
+        <div class="status-update {{ status }}">
+            {% if status == 'submitted' %}
+                Your order has been received and is being reviewed
+            {% elseif status == 'confirmed' %}
+                Your order has been confirmed
+            {% elseif status == 'dispatched' %}
+                Your order has been dispatched
+            {% elseif status == 'completed' %}
+                Your order has been delivered successfully
+            {% elseif status == 'canceled' %}
+                Your order has been canceled
+            {% else %}
+                Your order status has been updated to: {{ status }}
+            {% endif %}
+        </div>
+
+        {% if status != 'canceled' %}
+            <div class="timeline">
+                <h3>Order Progress:</h3>
+                <div class="timeline-item">
+                    <div class="timeline-icon {% if status in ['submitted', 'confirmed', 'dispatched', 'completed'] %}completed{% else %}pending{% endif %}">
+                        {% if status in ['submitted', 'confirmed', 'dispatched', 'completed'] %}✓{% else %}1{% endif %}
+                    </div>
+                    <span>Order Submitted</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon {% if status in ['confirmed', 'dispatched', 'completed'] %}completed{% elseif status == 'submitted' %}current{% else %}pending{% endif %}">
+                        {% if status in ['confirmed', 'dispatched', 'completed'] %}✓{% else %}2{% endif %}
+                    </div>
+                    <span>Order Confirmed</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon {% if status in ['dispatched', 'completed'] %}completed{% elseif status == 'confirmed' %}current{% else %}pending{% endif %}">
+                        {% if status in ['dispatched', 'completed'] %}✓{% else %}3{% endif %}
+                    </div>
+                    <span>Order Dispatched</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon {% if status == 'completed' %}completed{% elseif status == 'dispatched' %}current{% else %}pending{% endif %}">
+                        {% if status == 'completed' %}✓{% else %}4{% endif %}
+                    </div>
+                    <span>Order Delivered</span>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="order-details">
+            <h2>Order Details:</h2>
+            <p><strong>Order Number:</strong> {{ order.orderNumber }}</p>
+            <p><strong>Date:</strong> {{ order.createdAt|date('Y-m-d H:i:s') }}</p>
+            <p><strong>Shipping Address:</strong> {{ order.shippingAddress ?? 'Not provided' }}</p>
+
+            {% if status == 'submitted' %}
+                <p>We're currently reviewing your order. You'll receive another notification once it's confirmed.</p>
+            {% elseif status == 'confirmed' %}
+                <p>Your order has been confirmed and will be dispatched soon. We'll notify you once it's on its way.</p>
+            {% elseif status == 'dispatched' %}
+                <p><strong>Estimated Delivery:</strong> {{ 'now'|date_modify('+3 days')|date('Y-m-d') }} - {{ 'now'|date_modify('+7 days')|date('Y-m-d') }}</p>
+                <p>Your order is on its way! You should receive it within the estimated timeframe above.</p>
+            {% elseif status == 'completed' %}
+                <p>Thank you for your order! We hope you're satisfied with your purchase.</p>
+                <p>If you have any feedback about your experience, we'd love to hear from you.</p>
+            {% elseif status == 'canceled' %}
+                <p>Your order has been canceled. If you have already paid for this order, a refund will be processed within 3-5 business days.</p>
+                <p>If you have any questions about this cancellation, please don't hesitate to contact us.</p>
+            {% endif %}
+
+            <h3>Items Ordered:</h3>
+            {% for item in order.items %}
+                <div class="item-row">
+                    <strong>{{ item.product.name }}</strong><br>
+                    Quantity: {{ item.quantity }} × €{{ item.unitPrice|number_format(2) }} = €{{ item.subtotal|number_format(2) }}
+                </div>
+            {% endfor %}
+
+            <div class="total">
+                Total: €{{ order.totalAmount|number_format(2) }}
+            </div>
+        </div>
+
+        {% if status not in ['canceled', 'completed'] %}
+            <p>You can track your order status anytime using the button below:</p>
+            <p style="text-align: center;">
+                <a href="{{ base_url }}/account/orders/{{ order.id }}" class="button">Track Your Order</a>
+            </p>
+        {% elseif status == 'completed' %}
+            <p style="text-align: center;">
+                <a href="{{ base_url }}/account/orders" class="button">View All Orders</a>
+            </p>
+        {% endif %}
+
+        <p>If you have any questions about your order, please contact our customer service team.</p>
+
+        <p>Thank you for your business!</p>
+    </div>
+
+    <div class="footer">
+        <p>This is an automated message, please do not reply to this email.</p>
+        <p>&copy; {{ "now"|date('Y') }} Your Company Name. All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>

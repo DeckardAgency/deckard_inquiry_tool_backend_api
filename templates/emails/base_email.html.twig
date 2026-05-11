@@ -1,0 +1,141 @@
+{# templates/emails/base_email.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Order Update{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .email-header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .email-header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: normal;
+        }
+        .email-body {
+            padding: 30px 20px;
+        }
+        .email-footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .status-draft { background-color: #e9ecef; color: #495057; }
+        .status-submitted { background-color: #d1ecf1; color: #0c5460; }
+        .status-confirmed { background-color: #d4edda; color: #155724; }
+        .status-dispatched { background-color: #cce5ff; color: #004085; }
+        .status-completed { background-color: #d1e7dd; color: #0f5132; }
+        .status-canceled { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="email-header">
+        <h1>{% block header %}Order Update{% endblock %}</h1>
+    </div>
+
+    <div class="email-body">
+        {% block content %}
+            <!-- Main email content goes here -->
+        {% endblock %}
+
+        {% block cta %}
+            <!-- Call to action button goes here -->
+        {% endblock %}
+    </div>
+
+    <div class="email-footer">
+        {% block footer %}
+            <p>This is an automated message from your order management system.</p>
+            <p>&copy; {{ "now"|date('Y') }} Your Company Name. All rights reserved.</p>
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

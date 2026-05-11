@@ -1,0 +1,272 @@
+parameters:
+    media_directory: '%kernel.project_dir%/public/uploads'
+    app.client_url: '%env(CLIENT_APP_URL)%'
+    app.invitation_expiration_days: 7
+    app.abas_interface_url: '%env(ABAS_INTERFACE_URL)%'
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    App\Controller\CreateMediaItemAction:
+        arguments:
+            $uploadDirectory: '%media_directory%'
+            $serializer: '@serializer'
+
+    App\Controller\DocumentationMediaController:
+        arguments:
+            $uploadDirectory: '%media_directory%'
+            $serializer: '@serializer'
+
+    App\Command\ImportPartsCommand:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $projectDir: '%kernel.project_dir%'
+            $uploadDir: '%kernel.project_dir%/public/uploads'
+
+    App\MessageHandler\OrderCreatedMessageHandler:
+        arguments:
+            $adminEmail: '%env(ORDER_ADMIN_EMAIL)%'
+            $senderEmail: '%env(ORDER_SENDER_EMAIL)%'
+            $twig: '@twig'
+
+    App\MessageHandler\OrderStatusChangedMessageHandler:
+        arguments:
+            $adminEmail: '%env(ORDER_ADMIN_EMAIL)%'
+            $senderEmail: '%env(ORDER_SENDER_EMAIL)%'
+            $twig: '@twig'
+
+    # Inquiry message handlers
+    App\MessageHandler\InquiryCreatedMessageHandler:
+        arguments:
+            $adminEmail: '%env(INQUIRY_ADMIN_EMAIL)%'
+            $senderEmail: '%env(INQUIRY_SENDER_EMAIL)%'
+            $adminAppUrl: '%env(ADMIN_APP_URL)%'
+            $clientAppUrl: '%app.client_url%'
+            $twig: '@twig'
+
+    App\MessageHandler\InquiryStatusChangedMessageHandler:
+        arguments:
+            $adminEmail: '%env(INQUIRY_ADMIN_EMAIL)%'
+            $senderEmail: '%env(INQUIRY_SENDER_EMAIL)%'
+            $adminAppUrl: '%env(ADMIN_APP_URL)%'
+            $clientAppUrl: '%app.client_url%'
+            $twig: '@twig'
+
+    # Part Info Request message handler
+    App\MessageHandler\InquiryPartInfoRequestMessageHandler:
+        arguments:
+            $adminEmail: '%env(INQUIRY_ADMIN_EMAIL)%'
+            $senderEmail: '%env(INQUIRY_SENDER_EMAIL)%'
+            $clientAppUrl: '%app.client_url%'
+            $adminAppUrl: '%env(ADMIN_APP_URL)%'
+            $twig: '@twig'
+
+    # User invitation message handler
+    App\MessageHandler\UserInvitedMessageHandler:
+        arguments:
+            $clientAppUrl: '%app.client_url%'
+            $senderEmail: '%env(INQUIRY_SENDER_EMAIL)%'
+            $senderName: 'Deckard Inquiry Tool'
+            $twig: '@twig'
+
+    # Invitation processors
+    App\State\Processor\InvitationCreatedProcessor:
+        arguments:
+            $invitationExpirationDays: '%app.invitation_expiration_days%'
+
+    App\Security\JwtAuthenticationSuccessHandler:
+        decorates: lexik_jwt_authentication.handler.authentication_success
+        decoration_priority: 10
+        public: false
+
+    App\State\Processor\OrderPriceProcessor:
+        arguments:
+            $persistProcessor: '@api_platform.doctrine.orm.state.persist_processor'
+            $entityManager: '@doctrine.orm.entity_manager'
+            $priceCalculator: '@App\Service\PriceCalculator'
+            $logger: '@logger'
+            $security: '@security.helper'
+            $messageBus: '@messenger.default_bus'
+        tags:
+            - { name: 'api_platform.state_processor', priority: 20 }
+
+    App\State\Processor\UserPasswordHasher:
+        arguments:
+            $processor: '@api_platform.doctrine.orm.state.persist_processor'
+
+    App\State\Processor\ClientUsersProcessor:
+        arguments:
+            $processor: '@api_platform.doctrine.orm.state.persist_processor'
+
+    App\State\OrderDraftProvider:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $security: '@security.helper'
+        tags: [ 'api_platform.state_provider' ]
+
+    App\State\Processor\OrderDraftProcessor:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $security: '@security.helper'
+            $orderPriceProcessor: '@App\State\Processor\OrderPriceProcessor'
+            $logger: '@logger'
+        tags: [ 'api_platform.state_processor' ]
+
+    App\Service\PriceCalculator:
+        autowire: true
+        autoconfigure: true
+
+    App\Command\ImportMachinesXlsxCommand:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $projectDir: '%kernel.project_dir%'
+            $uploadDir: '%kernel.project_dir%/public/uploads'
+
+    App\Command\ImportPartMachineRelationsCommand:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $projectDir: '%kernel.project_dir%'
+
+    App\Command\ExportPartsByMachineCategoryCommand:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $projectDir: '%kernel.project_dir%'
+
+    App\State\Processor\DocumentationRevisionProcessor:
+        arguments:
+            $persistProcessor: '@api_platform.doctrine.orm.state.persist_processor'
+            $entityManager: '@doctrine.orm.entity_manager'
+            $revisionRepository: '@App\Repository\DocumentationRevisionRepository'
+            $security: '@security.helper'
+            $logger: '@logger'
+        tags: [ 'api_platform.state_processor' ]
+
+    App\State\InquiryDraftProvider:
+        arguments:
+            $security: '@security.helper'
+            $inquiryRepository: '@App\Repository\InquiryRepository'
+        tags: [ 'api_platform.state_provider' ]
+
+    App\State\Processor\InquiryDraftProcessor:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $security: '@security.helper'
+            $logger: '@logger'
+        tags: [ 'api_platform.state_processor' ]
+
+    App\Service\DashboardService:
+        autowire: true
+        autoconfigure: true
+
+    # Dashboard provider
+    App\State\DashboardProvider:
+        autowire: true
+        autoconfigure: true
+        tags:
+            - { name: 'api_platform.state_provider' }
+
+    # Rate limiting for login endpoint
+    App\EventSubscriber\LoginRateLimitSubscriber:
+        arguments:
+            $loginLimiter: '@limiter.login'
+
+    # Area Assignment Strategies
+    App\Service\AreaAssignment\Strategy\CriteriaMatchStrategy:
+        tags: ['area.assignment.strategy']
+
+    App\Service\AreaAssignment\Strategy\RoundRobinStrategy:
+        tags: ['area.assignment.strategy']
+
+    App\Service\AreaAssignment\Strategy\LoadBalancedStrategy:
+        tags: ['area.assignment.strategy']
+
+    App\Service\AreaAssignment\Strategy\AvailabilityStrategy:
+        tags: ['area.assignment.strategy']
+
+    App\Service\AreaAssignment\Strategy\HybridStrategy:
+        tags: ['area.assignment.strategy']
+        arguments:
+            $strategies: !tagged_iterator area.assignment.strategy
+
+    App\Service\AreaAssignmentService:
+        arguments:
+            $strategies: !tagged_iterator area.assignment.strategy
+
+    # Custom UUID filter for API Platform
+    App\Filter\UuidSearchFilter:
+        tags: ['api_platform.filter']
+
+    # Password Reset Service
+    App\Service\PasswordResetService:
+        arguments:
+            $clientAppUrl: '%app.client_url%'
+            $mailFromAddress: '%env(INQUIRY_SENDER_EMAIL)%'
+            $mailFromName: 'Deckard Inquiry Tool'
+
+    # Dispatch Order Controller
+    App\Controller\DispatchOrderController:
+        arguments:
+            $uploadsDir: '%kernel.project_dir%/public/uploads'
+
+    # Order Dispatched Message Handler
+    App\MessageHandler\OrderDispatchedMessageHandler:
+        arguments:
+            $uploadsDir: '%kernel.project_dir%/public/uploads'
+            $adminEmail: '%env(ORDER_ADMIN_EMAIL)%'
+            $senderEmail: '%env(ORDER_SENDER_EMAIL)%'
+            $twig: '@twig'
+
+    # Dispatch Document Download Controller
+    App\Controller\DispatchDocumentDownloadController:
+        arguments:
+            $uploadsDir: '%kernel.project_dir%/public/uploads'
+
+    # Test Mail Command
+    App\Command\SendTestMailCommand:
+        arguments:
+            $mailerDsn: '%env(MAILER_DSN)%'
+        tags: ['console.command']
+
+    # ABAS Interface Service
+    App\Service\AbasInterfaceService:
+        arguments:
+            $abasInterfaceUrl: '%app.abas_interface_url%'
+            $clientAppUrl: '%app.client_url%'
+
+    # ABAS Interface Test Command
+    App\Command\AbbasTestConnectionCommand:
+        arguments:
+            $abasInterfaceUrl: '%app.abas_interface_url%'
+        tags: ['console.command']
+
+    # Inquiry Offer PDF Download Controller
+    App\Controller\InquiryOfferPdfDownloadController:
+        arguments:
+            $uploadDirectory: '%media_directory%'
+
+    # Inquiry Offer Sent Message Handler
+    App\MessageHandler\InquiryOfferSentMessageHandler:
+        arguments:
+            $senderEmail: '%env(INQUIRY_SENDER_EMAIL)%'
+            $clientAppUrl: '%app.client_url%'
+            $adminEmail: '%env(INQUIRY_ADMIN_EMAIL)%'
+            $adminAppUrl: '%env(ADMIN_APP_URL)%'
+            $uploadDirectory: '%media_directory%'
+            $twig: '@twig'
+
+    # Inquiry Offer Responded Message Handler
+    App\MessageHandler\InquiryOfferRespondedMessageHandler:
+        arguments:
+            $adminEmail: '%env(INQUIRY_ADMIN_EMAIL)%'
+            $senderEmail: '%env(INQUIRY_SENDER_EMAIL)%'
+            $adminAppUrl: '%env(ADMIN_APP_URL)%'
+            $twig: '@twig'

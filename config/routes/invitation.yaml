@@ -1,0 +1,9 @@
+invitation_verify:
+    path: /api/v1/user_invitations/verify/{token}
+    controller: App\Controller\InvitationVerifyController
+    methods: [GET]
+
+invitation_complete:
+    path: /api/v1/user_invitations/complete/{token}
+    controller: App\Controller\InvitationCompleteController
+    methods: [POST]

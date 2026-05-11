@@ -1,0 +1,43 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}Order Confirmed{% endblock %}
+
+{% block header %}Order #{{ order.orderNumber }} Has Been Confirmed{% endblock %}
+
+{% block content %}
+    <p>The order <span class="highlight">#{{ order.orderNumber }}</span> has been confirmed and is ready for dispatch.</p>
+
+    <div class="status-info" style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin: 20px 0;">
+        <p style="margin: 0;"><strong>✓ Order Confirmed</strong></p>
+        <p style="margin: 5px 0 0 0;">This order has been reviewed and confirmed. It can now be prepared for dispatch.</p>
+    </div>
+
+    <div class="order-summary" style="margin: 20px 0;">
+        <h3>Quick Summary:</h3>
+        <ul>
+            <li><strong>Customer:</strong> {{ order.user.fullName }}</li>
+            <li><strong>Total Amount:</strong> €{{ order.totalAmount|number_format(2, '.', ',') }}</li>
+            <li><strong>Number of Items:</strong> {{ order.items|length }}</li>
+            <li><strong>Shipping Address:</strong> {{ order.shippingAddress|default('Not provided') }}</li>
+        </ul>
+    </div>
+
+    <p>Next steps:</p>
+    <ul>
+        <li>Prepare items for packaging</li>
+        <li>Generate shipping labels</li>
+        <li>Update status to "Dispatched" once shipped</li>
+    </ul>
+
+    {% if order.notes %}
+        <div style="background-color: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; margin-top: 20px;">
+            <strong>Customer Notes:</strong> {{ order.notes }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block cta %}
+    <p style="text-align: center; margin-top: 30px;">
+        <a href="{{ base_url }}/admin/orders/{{ order.id }}" class="btn">View Full Order Details</a>
+    </p>
+{% endblock %}

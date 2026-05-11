@@ -1,0 +1,10 @@
+//Pfad: ${ABASInterfaceRoot}/InqRes/${YYYYMMDD.hhmmss}-${portalRefID}.json
+{
+    type : "UpdateInquiryResponse"
+    error : false,
+    errorCode : "", //empty if no error,
+    errorMsg  : "", //empty if no erroer, else detail about error
+    portalRefID : "Inq-1234567890
+    customerID   : "400000",
+    ABASRefID    : "(9640,3,0)", //intern STring mit ca 30 chars
+}

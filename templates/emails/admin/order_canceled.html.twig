@@ -1,0 +1,24 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}Order Canceled{% endblock %}
+
+{% block header %}Order #{{ order.orderNumber }} Has Been Canceled{% endblock %}
+
+{% block content %}
+    <p>The order <span class="highlight">#{{ order.orderNumber }}</span> has been canceled.</p>
+
+    <p>This order has been marked as canceled in the system. Please ensure that:</p>
+    <ul>
+        <li>Any reserved inventory is returned to available stock</li>
+        <li>Any initiated payment processes are reversed if necessary</li>
+        <li>The cancellation reason is documented in the order notes</li>
+    </ul>
+
+    <p style="color: #721c24;">If this cancellation was made in error, the order can be restored by changing its status back to the appropriate stage.</p>
+{% endblock %}
+
+{% block cta %}
+    <p style="text-align: center; margin-top: 30px;">
+        <a href="{{ base_url }}/admin/orders/{{ order.id }}" class="btn" style="background-color: #6c757d;">View Order Details</a>
+    </p>
+{% endblock %}

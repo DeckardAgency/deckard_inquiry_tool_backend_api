@@ -1,0 +1,12 @@
+api_platform:
+    title: Deckard Inquiry Tool REST API
+    version: 1.0.0
+    show_webby: false
+    defaults:
+        stateless: true
+        cache_headers:
+            vary: ['Content-Type', 'Authorization', 'Origin']
+    eager_loading:
+        max_joins: 50
+        enabled: true
+        fetch_partial: true

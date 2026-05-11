@@ -1,0 +1,49 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}Additional Information Required - Inquiry #{{ inquiry.inquiryNumber }}{% endblock %}
+
+{% block header %}Additional Information Required{% endblock %}
+
+{% block content %}
+    <p>Dear {{ user.firstName|default('Customer') }},</p>
+
+    <p>Thank you for your response regarding inquiry <strong class="highlight">#{{ inquiry.inquiryNumber }}</strong>.</p>
+
+    <div class="alert alert-warning">
+        <strong>Further Action Required:</strong> The administrator has reviewed your response and requires additional clarification.
+    </div>
+
+    <h3>Part Details</h3>
+    <table>
+        <tr>
+            <th>Part Number</th>
+            <td>{{ part.partNumber|default('N/A') }}</td>
+        </tr>
+        <tr>
+            <th>Part Name</th>
+            <td>{{ part.partName }}</td>
+        </tr>
+    </table>
+
+    <h3>Additional Request</h3>
+    <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; border-left: 4px solid #ffc107; margin: 15px 0;">
+        {{ message.messageText|nl2br }}
+    </div>
+
+    {% if message.mediaItems|length > 0 %}
+    <p><strong>Reference Files:</strong> {{ message.mediaItems|length }} attachment(s) available in the portal</p>
+    {% endif %}
+
+    <p>Please log in to your account to provide the additional information:</p>
+{% endblock %}
+
+{% block cta %}
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="{{ viewUrl }}" class="btn" style="color: #ffffff;">Update Response</a>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <p>If you have any questions, please contact our support team.</p>
+    <p>&copy; {{ "now"|date('Y') }} Deckard. All rights reserved.</p>
+{% endblock %}

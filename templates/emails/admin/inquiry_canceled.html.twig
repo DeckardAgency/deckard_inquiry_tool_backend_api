@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <p>Dear Admin,</p>
+
+    <p>Inquiry #{{ inquiry.inquiryNumber }} status has been changed to <strong>{{ status }}</strong>.</p>
+
+    <p><strong>Inquiry Details:</strong></p>
+    <p>
+        <strong>Inquiry Number:</strong> {{ inquiry.inquiryNumber }}<br>
+        <strong>Status:</strong> {{ inquiry.status }}<br>
+        <strong>Submitted:</strong> {{ inquiry.createdAt|date('d M Y H:i') }}<br>
+        <strong>Customer:</strong> {{ inquiry.user ? inquiry.user.fullName : 'N/A' }}<br>
+        <strong>Contact Email:</strong> {{ inquiry.contactEmail ?: (inquiry.user ? inquiry.user.email : 'N/A') }}<br>
+        <strong>Contact Phone:</strong> {{ inquiry.contactPhone ?: 'N/A' }}
+    </p>
+
+    {% if inquiry.machines|length > 0 %}
+    <p><strong>Machines/Parts Requested:</strong></p>
+    <ul>
+        {% for inquiryMachine in inquiry.machines %}
+        <li>
+            {% if inquiryMachine.machine %}
+                {% if inquiryMachine.machine.articleDescription %}
+                    {{ inquiryMachine.machine.articleDescription }}
+                {% elseif inquiryMachine.machine.articleNumber %}
+                    Article: {{ inquiryMachine.machine.articleNumber }}
+                {% else %}
+                    Machine (Station: {{ inquiryMachine.machine.ibStationNumber ?: 'N/A' }}, Serial: {{ inquiryMachine.machine.ibSerialNumber ?: 'N/A' }})
+                {% endif %}
+            {% elseif inquiryMachine.customMachineId %}
+                Custom Machine: {{ inquiryMachine.customMachineId }}
+            {% else %}
+                Machine (No details)
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if inquiry.notes %}
+    <p><strong>Additional Information:</strong><br>
+    {{ inquiry.notes }}</p>
+    {% endif %}
+
+    <p>You can view and manage this inquiry here: <a href="{{ viewUrl }}">View Inquiry</a></p>
+
+    <p>Sincerely,<br>Inquiry System</p>
+</body>
+</html>

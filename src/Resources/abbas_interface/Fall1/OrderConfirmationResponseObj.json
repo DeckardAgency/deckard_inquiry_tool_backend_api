@@ -1,0 +1,8 @@
+//Pfad: ${ABASInterfaceRoot}/OrderRes/${YYYYMMDD.hhmmss}-${portalRefID}.json
+{
+    customerID      : "400000",
+    portalRefID    : "Inq-1234567890",//Portal Referenz Nummer
+    orderRefID      : "Order-12343567"
+    ABASOrderID     : "",
+    ABASOrderPDFPath : "" //Pfad am server wo Angebot als prd hinterlegt ist
+}

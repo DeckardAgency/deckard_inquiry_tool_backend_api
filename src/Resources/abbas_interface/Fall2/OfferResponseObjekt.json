@@ -1,0 +1,29 @@
+//Pfad: ${ABASInterfaceRoot}/OfferRes/${YYYYMMDD.hhmmss}-${portalRefID}.json
+{
+    headData  :{
+    
+        customerID : "400000",
+        portalRefID : "Inq-1234567890",
+        ABASRefNbr : "(9999,3,0)", //intern String mit ca 30 chars
+        ABASOfferNbr : "EA1299999", //EA + 7 stellen; AngebotsNr
+        infoText : "Standard Text Baustein wie zb: ... ",
+    },
+    articlesSuccess : //Als Grün ausgewählte Artikel
+    [
+        {
+            articleNbr : "", //ArticleNr | AREPL | TEXT
+            portArtRefID : "",
+            pcs : "",  //Stück
+            unit : "", //Einheit
+            name : "", //bezeichnung
+            ABASRowRefID : "", //Abas Zeilen referenz Nummer
+            pos : 1, //nummber, to sort
+            price : 99.9999, //Einzelstückpreis Angedruckt Rabattiert, auf 4 Nachkommastellen senden aber im Portal auf 2 komma stellen (Kaufmännische Rundung),
+            discount : "-20", //% //als string
+            
+        },
+        ...
+    ]
+    
+    
+}

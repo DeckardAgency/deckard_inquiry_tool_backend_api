@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <p>Dear {{ user ? user.fullName : 'Customer' }},</p>
+
+    <p>To proceed with your inquiry #{{ inquiry.inquiryNumber }}, we require some additional information. Please review the details below and provide the necessary information as soon as possible.</p>
+
+    <p>
+        <strong>Inquiry ID:</strong> {{ inquiry.inquiryNumber }}<br>
+        <strong>Information Needed:</strong> [Specific details of the required information]
+    </p>
+
+    <p>Please provide this information by replying to this email or by updating your inquiry details here: <a href="{{ viewUrl }}">View Inquiry</a><br>
+    Once we receive the required information, we will continue processing your inquiry.</p>
+
+    <p>
+        Thank you for your prompt attention to this matter.<br>
+        Sincerely, The Deckard Team
+    </p>
+</body>
+</html>

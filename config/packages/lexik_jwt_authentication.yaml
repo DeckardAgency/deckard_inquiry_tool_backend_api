@@ -1,0 +1,20 @@
+# config/packages/lexik_jwt_authentication.yaml
+lexik_jwt_authentication:
+    secret_key: '%env(resolve:JWT_SECRET_KEY)%'
+    public_key: '%env(resolve:JWT_PUBLIC_KEY)%'
+    pass_phrase: '%env(JWT_PASSPHRASE)%'
+    token_ttl: 86400 # 24 hour
+
+    # Configure your encoder
+    encoder:
+        service: lexik_jwt_authentication.encoder.lcobucci
+
+    # Configure your token extraction
+    token_extractors:
+        authorization_header:
+            enabled: true
+            prefix: Bearer
+            name: Authorization
+
+    # User ID claim configuration
+    user_id_claim: username # This will use the email field as it matches getUserIdentifier()

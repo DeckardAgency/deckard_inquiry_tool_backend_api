@@ -1,0 +1,34 @@
+//Pfad: ${ABASInterfaceRoot}/Inq/${YYYYMMDD.hhmmss}-${portalRefID}.json
+{
+    headData  :{
+    
+        customerID : "400000", //Kunden Nummer as string
+        division    : "TX", // TX | RC //Wie weiß man das; Durch auswahl bei Inquiry durch Kunde
+        SBShort  : "", //Kürzel aus Portal Liste für Sachbearbeiter,
+        SBMail   : "", //aus Portal Liste für Sachbearbeiter,
+        TSShort  : "", //Kürzel aus Portal Liste für Technischer Support,
+        TSMail   : "", //aus Portal Liste für Technischer Support,
+        AMShort   : "", // Kürzel aus Portal Liste für AreaManager,
+        AMMail    : "" ,//aus Portal Liste für AreaManager,
+        portalRefID : "Inq-1234567890", //Portal Inquiry Referenz Nummer 
+        inquiryType   : "UPDATE" //NEW | UPDATE,
+        userBackLink  : "https://kde.staco.at/inq/${InquiryRefNbr}"
+    },
+    articles :
+    [
+        {
+            articleNbr : "2",
+            portArtRefID : "" //IMMER NEUE ID
+            pcs : 4.0,
+            //Bezeichnung : "", //nicht notwendig
+            //"ABASRefNr" (Position?), //nur bei Änderungen, damit man weiß wo was geändert wurde,
+            ABASRowRefID : "",
+            pos : 1, //nummber, to sort
+            price : 99.9999 //Einzelstückpreis Angedruckt Rabattiert, auf 4 Naachkommastellen Anzeige aber 2 komma stellen (Kaufmännische Rundung)
+            ABASOfferID: "", //ist zB aus 2. Grünen Artikel Liste oder leer wenn neu
+            ABASRefID: "" //ist zB aus 2. Grünen Artikel Liste, oder leer wenn neu
+        }
+        , {articleNbr : "31", ...
+    ]
+    
+}

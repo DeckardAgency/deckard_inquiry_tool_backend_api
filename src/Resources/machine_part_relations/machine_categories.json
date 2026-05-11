@@ -1,0 +1,1232 @@
+[
+  {
+    "name": "Shredders",
+    "description": "Shredders machines and equipment",
+    "machines": [
+      {
+        "type": "RAC",
+        "name": "EWZ 800",
+        "code": "00355",
+        "active": false
+      },
+      {
+        "type": "RAC",
+        "name": "Active Shredder AS800",
+        "code": "00355",
+        "active": true
+      },
+      {
+        "type": "RAD",
+        "name": "EWZ 1200",
+        "code": "00355",
+        "active": false
+      },
+      {
+        "type": "RAD",
+        "name": "Active Shredder AS1200",
+        "code": "00355",
+        "active": true
+      },
+      {
+        "type": "RAF",
+        "name": "EWZ 2000",
+        "code": "?????",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "starEX",
+    "description": "starEX machines and equipment",
+    "machines": [
+      {
+        "type": "EBB",
+        "name": "starEX 800S/ES",
+        "code": "07075/07090/08075/08090/08105",
+        "active": true
+      },
+      {
+        "type": "EBC",
+        "name": "starEX 1000",
+        "code": "10090/10105/10120/14120",
+        "active": false
+      },
+      {
+        "type": "EBE",
+        "name": "starEX 1400",
+        "code": "01400/14090/14105/14120/EX105",
+        "active": false
+      },
+      {
+        "type": "EBF",
+        "name": "starEX 1500/1600",
+        "code": "15120",
+        "active": true
+      },
+      {
+        "type": "EBG",
+        "name": "starEX 1500 Links",
+        "code": "15120",
+        "active": true
+      },
+      {
+        "type": "EBH",
+        "name": "starEX 2000",
+        "code": "20150",
+        "active": true
+      },
+      {
+        "type": "EBI",
+        "name": "starEX 1500 India",
+        "code": "",
+        "active": true
+      },
+      {
+        "type": "EBK",
+        "name": "starEX 1200 EQO",
+        "code": "12120",
+        "active": true
+      },
+      {
+        "type": "EBL",
+        "name": "starEX 700",
+        "code": "00700/07075",
+        "active": false
+      },
+      {
+        "type": "EBP",
+        "name": "starEX 1600 PF/P",
+        "code": "16121",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "compSTAR",
+    "description": "compSTAR machines and equipment",
+    "machines": [
+      {
+        "type": "RCC",
+        "name": "compSTAR 70",
+        "code": "TC070??",
+        "active": true
+      },
+      {
+        "type": "RCC",
+        "name": "compSTAR 120",
+        "code": "TC120",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "qualiTEC",
+    "description": "qualiTEC machines and equipment",
+    "machines": [
+      {
+        "type": "KIB",
+        "name": "qualiTEC",
+        "code": "QT150",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "LamiTEC",
+    "description": "LamiTEC machines and equipment",
+    "machines": [
+      {
+        "type": "ECB",
+        "name": "stacoTEC 1500/90",
+        "code": "00150",
+        "active": false
+      },
+      {
+        "type": "ECD",
+        "name": "stacoTEC 720",
+        "code": "00151",
+        "active": false
+      },
+      {
+        "type": "ECD",
+        "name": "lamiTEC MX",
+        "code": "00151",
+        "active": true
+      },
+      {
+        "type": "ECE",
+        "name": "lamiTEC LX / CX",
+        "code": "00152",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "gripTEC",
+    "description": "gripTEC machines and equipment",
+    "machines": [
+      {
+        "type": "ERA",
+        "name": "gripTEC",
+        "code": "",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "Testing Equipment",
+    "description": "Testing Equipment machines and equipment",
+    "machines": [
+      {
+        "type": "LPA",
+        "name": "stacoTEST 300",
+        "code": "00042",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "Dosing Systems",
+    "description": "Dosing Systems machines and equipment",
+    "machines": [
+      {
+        "type": "EDG",
+        "name": "graviTEC",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "EDG",
+        "name": "voluTEC",
+        "code": "?????",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "Flexographic Printing",
+    "description": "Flexographic Printing machines and equipment",
+    "machines": [
+      {
+        "type": "KDA",
+        "name": "stacoFLEX",
+        "code": "00091/00092/00093/00094",
+        "active": false
+      },
+      {
+        "type": "KDB",
+        "name": "dynaFLEX",
+        "code": "00097",
+        "active": false
+      },
+      {
+        "type": "KDE",
+        "name": "FLEXA 8045 W&H",
+        "code": "08045",
+        "active": false
+      },
+      {
+        "type": "KDF",
+        "name": "W&H FLEXA 8046-6",
+        "code": "08046",
+        "active": false
+      },
+      {
+        "type": "KDG",
+        "name": "W&H FLEXA 8046-4",
+        "code": "08046/80464",
+        "active": false
+      },
+      {
+        "type": "KDH",
+        "name": "rollFLEX",
+        "code": "00099",
+        "active": false
+      },
+      {
+        "type": "KDI",
+        "name": "rollFLEX PX",
+        "code": "00099",
+        "active": true
+      },
+      {
+        "type": "KDK",
+        "name": "dynaFLEX DX",
+        "code": "00198",
+        "active": true
+      },
+      {
+        "type": "KDL",
+        "name": "dynaFLEX DX evo",
+        "code": "00199",
+        "active": true
+      },
+      {
+        "type": "KDS",
+        "name": "dynaFLEX S6",
+        "code": "00107",
+        "active": false
+      },
+      {
+        "type": "KDS",
+        "name": "dynaFLEX SC 6",
+        "code": "00197",
+        "active": false
+      },
+      {
+        "type": "KDW",
+        "name": "FLEX 3/2100",
+        "code": "00095",
+        "active": false
+      },
+      {
+        "type": "Zukauf",
+        "name": "remFLEX",
+        "code": "?????",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "carryTEC",
+    "description": "carryTEC machines and equipment",
+    "machines": [
+      {
+        "type": "KTL",
+        "name": "carryTEC",
+        "code": "00044",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "Recycling",
+    "description": "Recycling machines and equipment",
+    "machines": [
+      {
+        "type": "RGA",
+        "name": "SSP-Reaktor 100",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "RGC",
+        "name": "recoSTAR SSP 1800",
+        "code": "00102",
+        "active": true
+      },
+      {
+        "type": "RGZ",
+        "name": "recoSTAR PET IV+",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "RIB",
+        "name": "recoSTAR Basic 65",
+        "code": "00119",
+        "active": false
+      },
+      {
+        "type": "RJB",
+        "name": "recoSTAR Basic 85",
+        "code": "00131",
+        "active": false
+      },
+      {
+        "type": "RKB",
+        "name": "recoSTAR Basic 105",
+        "code": "00134",
+        "active": false
+      },
+      {
+        "type": "RLB",
+        "name": "recoSTAR Basic 125",
+        "code": "00109/00136",
+        "active": false
+      },
+      {
+        "type": "RMB",
+        "name": "recoSTAR Basic 165",
+        "code": "00137",
+        "active": false
+      },
+      {
+        "type": "RIC",
+        "name": "recoSTAR Compact 65",
+        "code": "00111",
+        "active": false
+      },
+      {
+        "type": "RID",
+        "name": "recoSTAR Dynamic 65",
+        "code": "00119/00131",
+        "active": true
+      },
+      {
+        "type": "RJD",
+        "name": "recoSTAR Dynamic 85",
+        "code": "00131",
+        "active": true
+      },
+      {
+        "type": "RKD",
+        "name": "recoSTAR Dynamic 105",
+        "code": "00134",
+        "active": true
+      },
+      {
+        "type": "RLD",
+        "name": "recoSTAR Dynamic 125",
+        "code": "00136",
+        "active": true
+      },
+      {
+        "type": "RPD",
+        "name": "recoSTAR Dynamic 145",
+        "code": "00123",
+        "active": true
+      },
+      {
+        "type": "RMD",
+        "name": "recoSTAR Dynamic 165",
+        "code": "00137",
+        "active": true
+      },
+      {
+        "type": "ROD",
+        "name": "recoSTAR Dynamic 215",
+        "code": "00122",
+        "active": true
+      },
+      {
+        "type": "RIP",
+        "name": "recoSTAR PET 65 HC / FG / FG+ / iV+  / iV+ Superior",
+        "code": "00103/00112",
+        "active": true
+      },
+      {
+        "type": "RJP",
+        "name": "recoSTAR PET 85 HC / FG / FG+ / iV+  / iV+ Superior",
+        "code": "00121",
+        "active": true
+      },
+      {
+        "type": "RKP",
+        "name": "recoSTAR PET 105 HC / FG / FG+ / iV+  / iV+ Superior",
+        "code": "00140",
+        "active": true
+      },
+      {
+        "type": "RLP",
+        "name": "recoSTAR PET 125 HC / FG / FG+ / iV+  / iV+ Superior",
+        "code": "00113",
+        "active": true
+      },
+      {
+        "type": "RMP",
+        "name": "recoSTAR PET 165 HC / FG / FG+ / iV+  / iV+ Superior",
+        "code": "00135",
+        "active": true
+      },
+      {
+        "type": "ROP",
+        "name": "recoSTAR PET 215 HC / FG / FG+ / iV+  / iV+ Superior",
+        "code": "00141",
+        "active": true
+      },
+      {
+        "type": "RNP",
+        "name": "recoSTAR PET 330 HC / FG / FG+ / iV+  / iV+ Superior",
+        "code": "00138",
+        "active": true
+      },
+      {
+        "type": "RIU",
+        "name": "recoSTAR Universal 65",
+        "code": "00103",
+        "active": true
+      },
+      {
+        "type": "RIV",
+        "name": "recoSTAR Universal 65  Textil",
+        "code": "00103",
+        "active": true
+      },
+      {
+        "type": "RJU",
+        "name": "recoSTAR Universal 85",
+        "code": "00132",
+        "active": true
+      },
+      {
+        "type": "RJV",
+        "name": "recoSTAR Universal 85 Textil",
+        "code": "00132",
+        "active": true
+      },
+      {
+        "type": "RKU",
+        "name": "recoSTAR Universal 105",
+        "code": "00133",
+        "active": true
+      },
+      {
+        "type": "RKV",
+        "name": "recoSTAR Universal 105",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "RLU",
+        "name": "recoSTAR Universal 125",
+        "code": "00101",
+        "active": true
+      },
+      {
+        "type": "RMU",
+        "name": "recoSTAR Universal 165",
+        "code": "00139",
+        "active": true
+      },
+      {
+        "type": "RLA",
+        "name": "recoSTAR PET 125 Art",
+        "code": "00143",
+        "active": true
+      },
+      {
+        "type": "RMA",
+        "name": "recoSTAR PET 165 Art",
+        "code": "00135",
+        "active": true
+      },
+      {
+        "type": "ROA",
+        "name": "recoSTAR PET 215 Art",
+        "code": "00142",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "Other",
+    "description": "Other machines and equipment",
+    "machines": [
+      {
+        "type": "Zukauf",
+        "name": "viscoSTAR 75",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "Zukauf",
+        "name": "viscoSTAR 120",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "Zukauf",
+        "name": "viscoSTAR 150",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "Zukauf",
+        "name": "viscoSTAR 180",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "RGB",
+        "name": "HAD / CRY 1000",
+        "code": "00114/00117",
+        "active": true
+      },
+      {
+        "type": "RGD",
+        "name": "HAD 1500",
+        "code": "00117",
+        "active": true
+      },
+      {
+        "type": "RGE",
+        "name": "HAD 2800",
+        "code": "00117",
+        "active": true
+      },
+      {
+        "type": "RGJ",
+        "name": "HAD 3700",
+        "code": "00117",
+        "active": true
+      },
+      {
+        "type": "RGK",
+        "name": "HAD 4600",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "RGL",
+        "name": "HAD 5400",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "RGI",
+        "name": "HAD 11000",
+        "code": "00117",
+        "active": true
+      },
+      {
+        "type": "RGM",
+        "name": "HAD 14000",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "RCD",
+        "name": "starPRESS",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "KNP",
+        "name": "baleTEC",
+        "code": "00052",
+        "active": true
+      },
+      {
+        "type": "KNA",
+        "name": "KON 2002",
+        "code": "00073/00075/00092/00185",
+        "active": false
+      },
+      {
+        "type": "KNB",
+        "name": "KON 2002 / B",
+        "code": "00074",
+        "active": false
+      },
+      {
+        "type": "KNH",
+        "name": "turnTEC Rollengusset senkrecht",
+        "code": "SEGUS/00187",
+        "active": false
+      },
+      {
+        "type": "KNJ",
+        "name": "cottonKON",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "KNS",
+        "name": "semiKON 750/1250",
+        "code": "00070",
+        "active": false
+      },
+      {
+        "type": "KNU",
+        "name": "SML-valveKON",
+        "code": "00080",
+        "active": false
+      },
+      {
+        "type": "KNV",
+        "name": "valveKON valve-Semiautomatik",
+        "code": "00080",
+        "active": false
+      },
+      {
+        "type": "KVA",
+        "name": "ad-convertex",
+        "code": "ADCON/CON03/CONV3/0CONV/CONWH",
+        "active": false
+      },
+      {
+        "type": "RGB",
+        "name": "HAD / CRY 1000",
+        "code": "00114/00117",
+        "active": true
+      },
+      {
+        "type": "RGG",
+        "name": "CRY 4000",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "RGF",
+        "name": "PCU 2500",
+        "code": "00114/00118",
+        "active": true
+      },
+      {
+        "type": "RGH",
+        "name": "PCU 4500",
+        "code": "00118",
+        "active": true
+      },
+      {
+        "type": "RDB",
+        "name": "RECO-60",
+        "code": "00107",
+        "active": false
+      },
+      {
+        "type": "RDD",
+        "name": "RECO-70",
+        "code": "00106",
+        "active": false
+      },
+      {
+        "type": "RDF",
+        "name": "RECO-105",
+        "code": "00105",
+        "active": false
+      },
+      {
+        "type": "RDJ",
+        "name": "RECO-65 Basic IV-Plus",
+        "code": "00119",
+        "active": false
+      },
+      {
+        "type": "RDK",
+        "name": "RECO-125 Basic IV-Plus",
+        "code": "00113",
+        "active": false
+      },
+      {
+        "type": "RDA",
+        "name": "RECO-45 Compact",
+        "code": "00104",
+        "active": false
+      },
+      {
+        "type": "RHC",
+        "name": "RECO-45 Compact",
+        "code": "00104",
+        "active": false
+      },
+      {
+        "type": "RDC",
+        "name": "RECO-65 Compact",
+        "code": "00103",
+        "active": false
+      },
+      {
+        "type": "RDI",
+        "name": "RECO-65 Universal 2",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "RDG",
+        "name": "Extruder 125 Universal 2",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "KAA",
+        "name": "slitTEC 700",
+        "code": "00033",
+        "active": true
+      },
+      {
+        "type": "WLA",
+        "name": "stacoLOOM SL6",
+        "code": "00000/00001/00002/CNSL6/01-01",
+        "active": false
+      },
+      {
+        "type": "WLB",
+        "name": "stacoLOOM SL61",
+        "code": "00001/00004",
+        "active": false
+      },
+      {
+        "type": "WLC",
+        "name": "stacoLOOM SL62",
+        "code": "00009/00ALT",
+        "active": false
+      },
+      {
+        "type": "WLD",
+        "name": "stacoLOOM SL8",
+        "code": "00005",
+        "active": false
+      },
+      {
+        "type": "WLE",
+        "name": "stacoLOOM SL82",
+        "code": "00008",
+        "active": false
+      },
+      {
+        "type": "WLL",
+        "name": "stacoLOOM Leno",
+        "code": "00012/00014",
+        "active": true
+      },
+      {
+        "type": "WLL",
+        "name": "stacoLOOM Leno+",
+        "code": "00012/00014",
+        "active": true
+      },
+      {
+        "type": "WLV",
+        "name": "stacoLOOM RX 6.0",
+        "code": "06-CN",
+        "active": false
+      },
+      {
+        "type": "WLV",
+        "name": "stacoLOOM RX 6.0 PRO",
+        "code": "03-CN",
+        "active": true
+      },
+      {
+        "type": "WLU",
+        "name": "stacoLOOM RX 6.1",
+        "code": "CHINA /04-CN / 05-CN",
+        "active": false
+      },
+      {
+        "type": "WLU",
+        "name": "stacoLOOM RX 6.1 PRO",
+        "code": "04-CN / 05-CN",
+        "active": true
+      },
+      {
+        "type": "WLW",
+        "name": "stacoLOOM RX 8.0",
+        "code": "08-CN",
+        "active": false
+      },
+      {
+        "type": "WLW",
+        "name": "stacoLOOM RX 8.0 II",
+        "code": "09-CN",
+        "active": false
+      },
+      {
+        "type": "WLW",
+        "name": "stacoLOOM RX 8.2 Standard / Light Version",
+        "code": "09-CN",
+        "active": true
+      },
+      {
+        "type": "WLW",
+        "name": "stacoLOOM RX 8.2 PRO",
+        "code": "10-CN",
+        "active": true
+      },
+      {
+        "type": "WLY",
+        "name": "stacoLOOM RX 8.1",
+        "code": "07-CN",
+        "active": true
+      },
+      {
+        "type": "WLY",
+        "name": "stacoLOOM RX 8.2",
+        "code": "09-CN",
+        "active": false
+      },
+      {
+        "type": "WLX",
+        "name": "stacoLOOM Omega 4",
+        "code": "00010",
+        "active": false
+      },
+      {
+        "type": "WLZ",
+        "name": "stacoLOOM Omega 6",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "WLZ",
+        "name": "stacoLOOM Omega 1000",
+        "code": "11111/01-CN/001CN/00001",
+        "active": false
+      },
+      {
+        "type": "ZKW",
+        "name": "Omega 6",
+        "code": "19-CN / CNTEI / CNLIE /09-CN",
+        "active": false
+      },
+      {
+        "type": "ZKW",
+        "name": "Omega 1000",
+        "code": "11-CN / 01-CN",
+        "active": false
+      },
+      {
+        "type": "W99",
+        "name": "Weaving machine general",
+        "code": "",
+        "active": false
+      },
+      {
+        "type": "KTA",
+        "name": "Polytex W&H",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "KTB",
+        "name": "tubeTEC",
+        "code": "00037",
+        "active": false
+      },
+      {
+        "type": "KTC",
+        "name": "tubeTEC 150D",
+        "code": "00037",
+        "active": false
+      },
+      {
+        "type": "KTM",
+        "name": "tubeTEC TX",
+        "code": "00037",
+        "active": true
+      },
+      {
+        "type": "RCA",
+        "name": "Spulenrest-Schneidmaschine",
+        "code": "00251",
+        "active": true
+      },
+      {
+        "type": "RCB",
+        "name": "Spulenrest-Schneidmaschine",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "SEA",
+        "name": "stacoFIL 200",
+        "code": "0SAHM/CN200/20-CN",
+        "active": false
+      },
+      {
+        "type": "SEB",
+        "name": "stacoFIL 300",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "SEC",
+        "name": "stacoFIL 200 XE",
+        "code": "0SAHM/00022/ABDIO",
+        "active": false
+      },
+      {
+        "type": "SED",
+        "name": "stacoFIL 250 XE",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "SEE",
+        "name": "stacoFIL 200 XM",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "SEF",
+        "name": "stacoFIL 200 XA",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "SEG",
+        "name": "stacoFIL 200 AII",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "SEX",
+        "name": "FIL23",
+        "code": "00023",
+        "active": false
+      },
+      {
+        "type": "SEZ",
+        "name": "stacoFIL 200AII CN",
+        "code": "?????",
+        "active": false
+      },
+      {
+        "type": "ZKS",
+        "name": "twinTAPE 200LX",
+        "code": "0SAHM / TTAPE",
+        "active": true
+      },
+      {
+        "type": "ZKS",
+        "name": "linTAPE 200LX",
+        "code": "0SAHM / LTAPE",
+        "active": true
+      },
+      {
+        "type": "ZKS",
+        "name": "Sahm 240 XE",
+        "code": "240-E",
+        "active": true
+      },
+      {
+        "type": "ZKS",
+        "name": "Sahm 260 E",
+        "code": "01ALT",
+        "active": true
+      },
+      {
+        "type": "ZKS",
+        "name": "stacoTAPE 200XE",
+        "code": "0SAHM / STAPE",
+        "active": true
+      },
+      {
+        "type": "Zukauf",
+        "name": "deCON 50",
+        "code": "",
+        "active": true
+      },
+      {
+        "type": "Zukauf",
+        "name": "deCON 65",
+        "code": "",
+        "active": true
+      },
+      {
+        "type": "Zukauf",
+        "name": "deCON 80",
+        "code": "",
+        "active": true
+      },
+      {
+        "type": "ZKI",
+        "name": "Spannungsstabilisator",
+        "code": "ST450/ST610/ST690/ST700/STABI/45KVA",
+        "active": true
+      },
+      {
+        "type": "ZKN",
+        "name": "N\u00e4hmaschinen",
+        "code": "NM_01/000FM/NAEHM",
+        "active": true
+      },
+      {
+        "type": "ZKO",
+        "name": "Kompressor",
+        "code": "GA_18/GA_22/GA_30/GA_55\u2026",
+        "active": true
+      },
+      {
+        "type": "ZKU",
+        "name": "K\u00fchler / Chiller",
+        "code": "6H120/6H080/H_035/H_090/H_180/H_230/H_280/45HGS/...\nHT075/HT090/HT150/HT180/HT360/HT400/ST220/ST280/...\n095HT/180HT/204HT/220HT/254HT/290HT/370HT/400HT/650HT/...\n201MR/202MR/252MR/254MR/302MR/314MR/402MR/404MR/...\n121ST/150ST/180ST/230ST/252ST/254ST/280ST/301ST/302ST/370ST/402ST/404ST/460ST/...",
+        "active": true
+      },
+      {
+        "type": "999",
+        "name": "General spare part",
+        "code": "",
+        "active": true
+      },
+      {
+        "type": "E99",
+        "name": "Extrusion line general",
+        "code": "",
+        "active": false
+      },
+      {
+        "type": "LAB",
+        "name": "Laboratory",
+        "code": "",
+        "active": false
+      },
+      {
+        "type": "K99",
+        "name": "Conversion machines general",
+        "code": "",
+        "active": false
+      }
+    ]
+  },
+  {
+    "name": "Conversion Lines",
+    "description": "Conversion Lines machines and equipment",
+    "machines": [
+      {
+        "type": "KCA",
+        "name": "cb*starKON 100",
+        "code": "00238",
+        "active": false
+      },
+      {
+        "type": "KNC",
+        "name": "multiKON",
+        "code": "00076",
+        "active": true
+      },
+      {
+        "type": "KND",
+        "name": "multiKON Servo",
+        "code": "00077",
+        "active": true
+      },
+      {
+        "type": "KPA",
+        "name": "pp*starKON 1",
+        "code": "00038",
+        "active": true
+      },
+      {
+        "type": "KPB",
+        "name": "pp*starKON 2",
+        "code": "?????",
+        "active": true
+      },
+      {
+        "type": "KPC",
+        "name": "pp*starKON 3",
+        "code": "00038",
+        "active": false
+      },
+      {
+        "type": "KPD",
+        "name": "pp*starKON X",
+        "code": "",
+        "active": true
+      },
+      {
+        "type": "KPP",
+        "name": "pp*starKON V2",
+        "code": "00038",
+        "active": true
+      },
+      {
+        "type": "KSA",
+        "name": "ad*starKON AX",
+        "code": "00040",
+        "active": false
+      },
+      {
+        "type": "KSB",
+        "name": "ad*starKON 60",
+        "code": "00036",
+        "active": false
+      },
+      {
+        "type": "KSC",
+        "name": "ad*starKON SX / SX+ / AX / AX+",
+        "code": "00039/00040",
+        "active": true
+      },
+      {
+        "type": "KSD",
+        "name": "ad*starKON HX",
+        "code": "00043",
+        "active": true
+      },
+      {
+        "type": "KSE",
+        "name": "ad*starKON SX neo",
+        "code": "00045",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "Looms",
+    "description": "Looms machines and equipment",
+    "machines": [
+      {
+        "type": "WLF",
+        "name": "stacoLOOM Alpha 6.0",
+        "code": "00000/00002/00004/00008/02-01",
+        "active": true
+      },
+      {
+        "type": "WLG",
+        "name": "stacoLOOM Alpha 61",
+        "code": "00013/00014",
+        "active": false
+      },
+      {
+        "type": "WLJ",
+        "name": "stacoLOOM Alpha 88",
+        "code": "00013/00015",
+        "active": false
+      },
+      {
+        "type": "WSA",
+        "name": "stacoLOOM FX 6.0",
+        "code": "00003",
+        "active": true
+      },
+      {
+        "type": "WSA",
+        "name": "stacoLOOM FX 6.0L",
+        "code": "00025",
+        "active": true
+      },
+      {
+        "type": "WSB",
+        "name": "stacoLOOM FX 6.1",
+        "code": "00024",
+        "active": true
+      },
+      {
+        "type": "WSC",
+        "name": "stacoLOOM FX 8.0",
+        "code": "00022",
+        "active": true
+      },
+      {
+        "type": "WSE",
+        "name": "stacoLOOM FX 10.0",
+        "code": "00020",
+        "active": true
+      },
+      {
+        "type": "WSF",
+        "name": "stacoLOOM FX W",
+        "code": "-----",
+        "active": false
+      },
+      {
+        "type": "WSL",
+        "name": "stacoLOOM FX leno",
+        "code": "00027",
+        "active": true
+      },
+      {
+        "type": "WSX",
+        "name": "stacoLOOM FX-Alpha 6.0",
+        "code": "00026",
+        "active": true
+      }
+    ]
+  },
+  {
+    "name": "Winders",
+    "description": "Winders machines and equipment",
+    "machines": [
+      {
+        "type": "S99",
+        "name": "Winding machine general",
+        "code": "",
+        "active": false
+      }
+    ]
+  }
+]

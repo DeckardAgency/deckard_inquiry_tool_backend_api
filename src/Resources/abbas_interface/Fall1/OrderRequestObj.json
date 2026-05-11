@@ -1,0 +1,23 @@
+//Pfad: ${ABASInterfaceRoot}/Order/${YYYYMMDD.hhmmss}-${portalRefID}.json
+{
+    headData  :{
+    
+        customerID : "400000",
+        portalRefID : "Inq-1234567890",
+        orderRefNbr  : "Order-12343567" //Portal Order Ref Number
+    },
+    articlesSelected :
+    [
+        {
+            articleNbr : "",
+            portArtRefID : "",
+            pcs : 0,  //Stück
+            unit : "", //Einheit
+            name : "", //bezeichnung
+            //ABASRowRefNbr : "", // ? --> example please, nicht benötigt da portArtRefID
+            pos : 1, //nummber, to sort
+            price : 99.9999 //Einzelstückpreis Angedruckt Rabattiert, auf 4 Naachkommastellen Anzeige aber 2 komma stellen (Kaufmännische Rundung)
+            ABASOfferNbr: "EA1234567", //ist zB aus 2. Grünen Artikel Liste
+            ABASRefNbr: "(9640,3,0)"//ist zB aus 2. Grünen Artikel Liste
+        }
+    ]

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <p>Dear {{ user ? user.fullName : 'Customer' }},</p>
+
+    <p>This email confirms that your inquiry #{{ inquiry.inquiryNumber }} has been cancelled.</p>
+
+    <p>If you cancelled this order yourself, no further action is required. If you did not initiate this cancellation, please contact our support team immediately at [Support Email Address] or [Support Phone Number].</p>
+
+    <p>You can view your inquiry details here: <a href="{{ viewUrl }}">View Inquiry</a></p>
+
+    <p>If you have any questions or would like to place a new inquiry, please feel free to contact us.</p>
+
+    <p>Sincerely, The Deckard Team</p>
+</body>
+</html>

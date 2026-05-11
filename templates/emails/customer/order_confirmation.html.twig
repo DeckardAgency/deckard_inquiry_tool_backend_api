@@ -1,0 +1,74 @@
+{# emails/customer/order_confirmation.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .email-content {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .email-content p {
+            margin: 0 0 16px 0;
+        }
+        .order-info {
+            margin: 20px 0;
+            padding: 0;
+        }
+        .order-info p {
+            margin: 8px 0;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .signature {
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <p>Dear {{ user.fullName }},</p>
+
+            <p>Thank you for submitting your order #{{ order.orderNumber }} with Deckard. We have received your request and it is now being processed. You can find the details of your order below:</p>
+
+            <div class="order-info">
+                <p><strong>Order ID:</strong> {{ order.orderNumber }}</p>
+                <p><strong>Order Date:</strong> {{ order.createdAt|date('d M Y, H:i') }}</p>
+                <p><strong>Items Ordered:</strong></p>
+                {% for item in order.items %}
+                <p style="margin-left: 20px;">• {{ item.product.name }} - Quantity: {{ item.quantity }}{% if item.unitPrice > 0 %} - €{{ item.unitPrice|number_format(2) }}{% endif %}</p>
+                {% endfor %}
+            </div>
+
+            <p>You can view the full order details and track its progress in your account here: <a href="{{ base_url }}/orders/{{ order.id }}">Link to Order Details</a></p>
+
+            <p>We will keep you updated on the status of your order. If you have any questions, please don't hesitate to contact our support team at <a href="mailto:{{ supportEmail ?? 'support@deckard.com' }}">{{ supportEmail ?? 'support@deckard.com' }}</a> or call us at {{ supportPhone ?? '+43 1 234 5678' }}.</p>
+
+            <div class="signature">
+                <p>Thank you for choosing Deckard.</p>
+                <p>Sincerely,<br>The Deckard Team</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

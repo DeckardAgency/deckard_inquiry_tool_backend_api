@@ -1,0 +1,30 @@
+
+###> symfony/framework-bundle ###
+# Ignore all .env files except .env.example
+/.env
+/.env.*
+!/.env.example
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> uploads folder ###
+/public/uploads/
+###< uploads folder ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+###< phpunit/phpunit ###
+.env
+.env.dev

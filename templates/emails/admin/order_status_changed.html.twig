@@ -1,0 +1,76 @@
+{% extends 'emails/base_email.html.twig' %}
+
+{% block title %}Order Status Changed{% endblock %}
+
+{% block header %}Order #{{ order.orderNumber }} Status Changed{% endblock %}
+
+{% block content %}
+    <p>The status of order <span class="highlight">#{{ order.orderNumber }}</span> has been updated to <span class="status status-{{ status }}">{{ status|replace({'_': ' '})|title }}</span>.</p>
+
+    <div class="alert alert-info">
+        <p><strong>Status Description:</strong></p>
+        {% if status == 'draft' %}
+            <p>This order is saved as a draft and has not been submitted yet.</p>
+        {% elseif status == 'submitted' %}
+            <p>This order has been submitted by the customer and is awaiting confirmation.</p>
+        {% elseif status == 'confirmed' %}
+            <p>This order has been reviewed and confirmed. It's ready for dispatch.</p>
+        {% elseif status == 'dispatched' %}
+            <p>This order has been dispatched and is on its way to the customer.</p>
+        {% elseif status == 'completed' %}
+            <p>This order has been successfully delivered and completed.</p>
+        {% elseif status == 'canceled' %}
+            <p>This order has been canceled.</p>
+        {% else %}
+            <p>This is a notification to inform you that the order status has been changed.</p>
+        {% endif %}
+    </div>
+
+    <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+        <h3>Order Information:</h3>
+        <table style="width: 100%; margin: 0;">
+            <tr>
+                <td style="padding: 5px 10px;"><strong>Order Number:</strong></td>
+                <td style="padding: 5px 10px;">{{ order.orderNumber }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 10px;"><strong>Customer:</strong></td>
+                <td style="padding: 5px 10px;">{{ order.user.fullName }} ({{ order.user.email }})</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 10px;"><strong>Total Amount:</strong></td>
+                <td style="padding: 5px 10px;">€{{ order.totalAmount|number_format(2, '.', ',') }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 10px;"><strong>Created:</strong></td>
+                <td style="padding: 5px 10px;">{{ order.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px 10px;"><strong>Last Updated:</strong></td>
+                <td style="padding: 5px 10px;">{{ order.updatedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </table>
+    </div>
+
+    {% if status == 'submitted' %}
+        <div class="alert alert-warning">
+            <strong>Action Required:</strong> Please review this order and confirm it if everything is correct.
+        </div>
+    {% elseif status == 'confirmed' %}
+        <div class="alert alert-success">
+            <strong>Next Step:</strong> Prepare the order for dispatch.
+        </div>
+    {% elseif status == 'dispatched' %}
+        <div class="alert alert-info">
+            <strong>Remember:</strong> Update tracking information and monitor delivery progress.
+        </div>
+    {% endif %}
+
+    <p>Please review the order details and take any necessary actions based on this new status.</p>
+{% endblock %}
+
+{% block cta %}
+    <p style="text-align: center; margin-top: 30px;">
+        <a href="{{ base_url }}/admin/orders/{{ order.id }}" class="btn">View Order Details</a>
+    </p>
+{% endblock %}

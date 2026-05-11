@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You've been invited to Deckard Inquiry Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #0056b3;
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #0056b3;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .cta-button:hover {
+            background-color: #004494;
+        }
+        .link-text {
+            word-break: break-all;
+            color: #0056b3;
+            font-size: 12px;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .expiration-notice {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .footer a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .divider {
+            height: 1px;
+            background-color: #e9ecef;
+            margin: 30px 0;
+        }
+        .info-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #0056b3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="header">
+        <h1>Deckard Inquiry Tool</h1>
+    </div>
+
+    <div class="content">
+        <div class="greeting">
+            Hello {{ invitation.firstName }} {{ invitation.lastName }},
+        </div>
+
+        <div class="message">
+            <p>You've been invited to join the <strong>Deckard Inquiry Tool</strong> platform.</p>
+
+            <p>This powerful tool allows you to manage inquiries, track orders, and streamline your communication with Deckard.</p>
+        </div>
+
+        <div class="info-box">
+            <strong>Your Account Details:</strong><br>
+            Email: {{ invitation.email }}
+        </div>
+
+        <p style="text-align: center;">
+            <a href="{{ registrationUrl }}" class="cta-button">Set Your Password & Get Started</a>
+        </p>
+
+        <div class="expiration-notice">
+            <strong>⏰ Action Required:</strong><br>
+            This invitation link will expire in <strong>{{ expirationDays }} day{{ expirationDays > 1 ? 's' : '' }}</strong>.
+            Please complete your registration before {{ invitation.expiresAt|date('F j, Y \\a\\t g:i A') }}.
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="color: #6c757d; font-size: 14px;">
+            If the button above doesn't work, copy and paste this link into your browser:
+        </p>
+
+        <div class="link-text">
+            {{ registrationUrl }}
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="font-size: 14px; color: #6c757d;">
+            <strong>Need Help?</strong><br>
+            If you have any questions or need assistance, please contact our support team.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; {{ "now"|date("Y") }} Deckard & Co GmbH. All rights reserved.</p>
+        <p>
+            This is an automated email. Please do not reply to this message.<br>
+            If you did not expect this invitation, please ignore this email.
+        </p>
+    </div>
+</div>
+</body>
+</html>

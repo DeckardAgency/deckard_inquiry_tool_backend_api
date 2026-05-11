@@ -1,0 +1,37 @@
+//Pfad: ${ABASInterfaceRoot}/Inq/${YYYYMMDD.hhmmss}-${portalRefID}.json
+{
+    headData  :{
+    
+        customerID : "400000", //Kunden Nummer as string
+        division   : "TX", // TX | RC //Wie weiß man das; Durch auswahl bei Inquiry durch Kunde
+        SBShort  : "", //Kürzel aus Portal Liste für Sachbearbeiter,
+        SBMail   : "", //aus Portal Liste für Sachbearbeiter,
+        TSShort  : "", //Kürzel aus Portal Liste für Technischer Support,
+        TSMail   : "", //aus Portal Liste für Technischer Support,
+        AMShort  : "", // Kürzel aus Portal Liste für AreaManager,
+        AMMail   : "" ,//aus Portal Liste für AreaManager,
+        portalRefID : "Inq-400000-23-1234567890", //Portal Inquiry Referenz Nummer, MAX 255
+        inquiryType  : "NEW" //NEW | UPDATE,
+        userBackLink : "https://kde.staco.at/inq/${portalRefID}"
+    },
+    articles :
+    [
+        {
+            articleNbr : "Z4R-10463A",
+            portArtRefID : "1" //fortlaufend nummerierd maximal 255 Zeichen als Refernze wenn die grünen Artikel zurück gesendet werden ins Portal
+            pcs : 1.0 //peaces : Stück as Float
+        },
+        {
+            articleNbr : "BWWA-01108", //Wickler
+            portArtRefID : "2",
+            pcs : 10.0
+        },
+        {
+            articleNbr : "VYC-123456",
+            portArtRefID : "3",
+            pcs : 2.0
+        }
+        ,...
+    ]
+    
+}

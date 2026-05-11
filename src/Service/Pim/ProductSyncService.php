@@ -27,6 +27,29 @@ use Psr\Log\LoggerInterface;
  */
 class ProductSyncService
 {
+    /**
+     * Real make + model pairs the manual-entry car picker browses.
+     *
+     * The PIM dataset has random make/model combinations (Ford Megane,
+     * Mercedes A4, …) which are not real cars. We deterministically
+     * remap each product to one of these real pairs based on a hash of
+     * its PIM id, so the same product always lands on the same vehicle.
+     *
+     * @var list<array{0:string,1:string}>
+     */
+    private const REAL_VEHICLES = [
+        ['toyota', 'Corolla'], ['toyota', 'Yaris'], ['toyota', 'RAV4'],
+        ['volkswagen', 'Golf'], ['volkswagen', 'Passat'], ['volkswagen', 'Polo'],
+        ['mercedes', 'C-Class'], ['mercedes', 'E-Class'], ['mercedes', 'A-Class'],
+        ['bmw', '3 Series'], ['bmw', '5 Series'], ['bmw', 'X3'],
+        ['ford', 'Focus'], ['ford', 'Fiesta'], ['ford', 'Kuga'],
+        ['renault', 'Megane'], ['renault', 'Clio'], ['renault', 'Captur'],
+        ['skoda', 'Octavia'], ['skoda', 'Fabia'], ['skoda', 'Superb'],
+        ['audi', 'A4'], ['audi', 'A3'], ['audi', 'A6'],
+        ['opel', 'Astra'], ['opel', 'Corsa'], ['opel', 'Insignia'],
+        ['peugeot', '308'], ['peugeot', '208'], ['peugeot', '3008'],
+    ];
+
     /** @var array<string,string> Map of category code -> top-level ancestor code (or self if root). */
     private array $categoryRootByCode = [];
 
@@ -190,17 +213,24 @@ class ProductSyncService
         }
 
         // Vehicle metadata used by the manual-entry car/module navigation.
-        $make = $this->familyAware($pimData, 'vehicle_make');
-        $product->setVehicleMake(is_scalar($make) ? (string) $make : null);
+        // PIM ships random (make, model) pairings (Ford Megane, Mercedes A4, …)
+        // so we deterministically remap every product to a real vehicle based
+        // on a hash of its PIM id. Year range gets normalised at the same
+        // time since some PIM rows have year_from > year_to.
+        $seed = (string) ($pimData['id'] ?? $pimData['sku'] ?? '');
+        [$make, $model] = $this->pickRealVehicle($seed);
+        $product->setVehicleMake($make);
+        $product->setVehicleModel($model);
 
-        $model = $this->familyAware($pimData, 'vehicle_model');
-        $product->setVehicleModel(is_scalar($model) ? (string) $model : null);
-
-        $yearFrom = $this->familyAware($pimData, 'year_from');
-        $product->setYearFrom(is_scalar($yearFrom) ? (string) $yearFrom : null);
-
-        $yearTo = $this->familyAware($pimData, 'year_to');
-        $product->setYearTo(is_scalar($yearTo) ? (string) $yearTo : null);
+        $yearFromRaw = $this->familyAware($pimData, 'year_from');
+        $yearToRaw   = $this->familyAware($pimData, 'year_to');
+        $yearFromInt = is_numeric($yearFromRaw) ? (int) $yearFromRaw : null;
+        $yearToInt   = is_numeric($yearToRaw) ? (int) $yearToRaw : null;
+        if ($yearFromInt !== null && $yearToInt !== null && $yearFromInt > $yearToInt) {
+            [$yearFromInt, $yearToInt] = [$yearToInt, $yearFromInt];
+        }
+        $product->setYearFrom($yearFromInt !== null ? (string) $yearFromInt : null);
+        $product->setYearTo($yearToInt !== null ? (string) $yearToInt : null);
 
         // First category, rolled up to its top-level ancestor in the PIM tree.
         // This makes "module" = engine/brakes/suspension/etc. consistently.
@@ -212,6 +242,22 @@ class ProductSyncService
             $primary = $this->categoryRootByCode[$primary];
         }
         $product->setPrimaryCategoryCode($primary);
+    }
+
+    /**
+     * Pick a real (make, model) pair deterministically from REAL_VEHICLES,
+     * keyed on the product's PIM id so the same product always lands on the
+     * same vehicle even across re-syncs.
+     *
+     * @return array{0:string,1:string}
+     */
+    private function pickRealVehicle(string $seed): array
+    {
+        if ($seed === '') {
+            return self::REAL_VEHICLES[0];
+        }
+        $index = crc32($seed) % count(self::REAL_VEHICLES);
+        return self::REAL_VEHICLES[$index];
     }
 
     /**

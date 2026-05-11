@@ -14,6 +14,8 @@ use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Serializer\Filter\PropertyFilter;
+use App\Contract\PimSyncableInterface;
+use App\Entity\Trait\PimSyncableTrait;
 use App\Repository\ProductRepository;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -88,15 +90,16 @@ use ApiPlatform\OpenApi\Model;
     'machines.articleDescription' => 'partial'
 ])]
 #[ApiFilter(PropertyFilter::class)]
-class Product
+class Product implements PimSyncableInterface
 {
+    use PimSyncableTrait;
+
     #[ORM\Id]
     #[ORM\Column(type: "uuid", unique: true)]
     #[Groups(['product:read', 'product:list', 'order_item:read', 'order:read'])]
     private ?Uuid $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Gedmo\Slug(fields: ["partNo"])]
     #[Groups(['product:read', 'product:write', 'order_item:read', 'order:read'])]
     private ?string $name = null;
 

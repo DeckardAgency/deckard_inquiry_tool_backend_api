@@ -1,0 +1,34 @@
+# =============================================================================
+# PIM Integration Configuration
+# =============================================================================
+# Configure how the inquiry-tool backend pulls products from the Deckard PIM.
+#
+# When PIM is ENABLED:
+#   - Products are pulled from the configured PIM channel
+#   - Local product rows for that channel are kept in sync (is_from_pim=true)
+#   - admin_client should treat those rows as read-only
+#
+# When PIM is DISABLED:
+#   - The legacy ImportPartsCommand / manual editing flow stays in charge
+# =============================================================================
+
+parameters:
+    pim:
+        enabled: '%env(bool:PIM_ENABLED)%'
+
+        api:
+            url: '%env(PIM_API_URL)%'
+            key: '%env(PIM_API_KEY)%'
+            timeout: '%env(int:PIM_SYNC_TIMEOUT)%'
+            # Verify TLS certificate. Set to false ONLY for local dev with self-signed certs.
+            verify_ssl: '%env(bool:PIM_API_VERIFY_SSL)%'
+
+        # Channel code that matches the inquiry_tool channel on the PIM.
+        channel: '%env(PIM_CHANNEL)%'
+
+        sync:
+            batch_size: '%env(int:PIM_SYNC_BATCH_SIZE)%'
+
+        webhook:
+            enabled: false
+            secret: '%env(PIM_WEBHOOK_SECRET)%'

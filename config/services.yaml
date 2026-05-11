@@ -1,3 +1,6 @@
+imports:
+    - { resource: features/pim.yaml }
+
 parameters:
     media_directory: '%kernel.project_dir%/public/uploads'
     app.client_url: '%env(CLIENT_APP_URL)%'
@@ -15,6 +18,14 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+
+    # PIM integration
+    App\Service\Pim\PimFeatureManager:
+        arguments:
+            $pimConfig: '%pim%'
+
+    App\Service\Pim\PimClientInterface:
+        alias: App\Service\Pim\PimApiClient
 
     App\Controller\CreateMediaItemAction:
         arguments:

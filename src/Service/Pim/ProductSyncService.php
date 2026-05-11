@@ -27,6 +27,9 @@ use Psr\Log\LoggerInterface;
  */
 class ProductSyncService
 {
+    /** @var array<string,string> Map of category code -> top-level ancestor code (or self if root). */
+    private array $categoryRootByCode = [];
+
     public function __construct(
         private readonly PimClientInterface $pimClient,
         private readonly PimFeatureManager $featureManager,
@@ -47,6 +50,12 @@ class ProductSyncService
         $page = 1;
         $batchSize = $this->featureManager->getSyncBatchSize();
         $fetchFailed = false;
+
+        // Build a child-code -> top-level-ancestor map from the PIM category tree
+        // so each product's "module" (primary_category_code) is rolled up to one
+        // of the 6 cars roots (cars_engine, cars_brakes, cars_suspension, …)
+        // rather than a leaf like cars_belts or cars_lights.
+        $this->categoryRootByCode = $this->buildCategoryRootMap();
 
         $this->logger->info('Starting full PIM sync');
 
@@ -179,6 +188,77 @@ class ProductSyncService
         if (is_scalar($unit) && method_exists($product, 'setUnit')) {
             $product->setUnit((string) $unit);
         }
+
+        // Vehicle metadata used by the manual-entry car/module navigation.
+        $make = $this->familyAware($pimData, 'vehicle_make');
+        $product->setVehicleMake(is_scalar($make) ? (string) $make : null);
+
+        $model = $this->familyAware($pimData, 'vehicle_model');
+        $product->setVehicleModel(is_scalar($model) ? (string) $model : null);
+
+        $yearFrom = $this->familyAware($pimData, 'year_from');
+        $product->setYearFrom(is_scalar($yearFrom) ? (string) $yearFrom : null);
+
+        $yearTo = $this->familyAware($pimData, 'year_to');
+        $product->setYearTo(is_scalar($yearTo) ? (string) $yearTo : null);
+
+        // First category, rolled up to its top-level ancestor in the PIM tree.
+        // This makes "module" = engine/brakes/suspension/etc. consistently.
+        $categories = $pimData['categories'] ?? [];
+        $primary = is_array($categories) && $categories !== []
+            ? (is_string($categories[0]) ? $categories[0] : null)
+            : null;
+        if ($primary !== null && isset($this->categoryRootByCode[$primary])) {
+            $primary = $this->categoryRootByCode[$primary];
+        }
+        $product->setPrimaryCategoryCode($primary);
+    }
+
+    /**
+     * Fetch the PIM category tree for the active channel and return a flat map
+     * from each category code to its top-level ancestor. Falls back to identity
+     * if PIM is unreachable or returns nothing.
+     *
+     * @return array<string,string>
+     */
+    private function buildCategoryRootMap(): array
+    {
+        try {
+            $categories = $this->pimClient->getCategories();
+        } catch (\Throwable $e) {
+            $this->logger->warning('PIM category fetch failed; modules will use raw codes', [
+                'error' => $e->getMessage(),
+            ]);
+            return [];
+        }
+
+        // First pass: code -> parent code (null for roots).
+        $parentOf = [];
+        foreach ($categories as $cat) {
+            $code = $cat['code'] ?? null;
+            if (!is_string($code) || $code === '') {
+                continue;
+            }
+            $parent = $cat['parent'] ?? null;
+            $parentOf[$code] = is_string($parent) && $parent !== '' ? $parent : null;
+        }
+
+        // Second pass: walk up to the root for each code.
+        $rootOf = [];
+        foreach ($parentOf as $code => $_) {
+            $current = $code;
+            $seen = [];
+            while (isset($parentOf[$current]) && $parentOf[$current] !== null) {
+                if (isset($seen[$current])) {
+                    break; // cycle guard
+                }
+                $seen[$current] = true;
+                $current = $parentOf[$current];
+            }
+            $rootOf[$code] = $current;
+        }
+
+        return $rootOf;
     }
 
     /**

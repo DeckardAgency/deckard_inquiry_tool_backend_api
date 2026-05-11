@@ -87,7 +87,10 @@ use ApiPlatform\OpenApi\Model;
     'name' => 'partial',
     'partNo' => 'partial',
     'shortDescription' => 'partial',
-    'machines.articleDescription' => 'partial'
+    'machines.articleDescription' => 'partial',
+    'vehicleMake' => 'exact',
+    'vehicleModel' => 'exact',
+    'primaryCategoryCode' => 'exact',
 ])]
 #[ApiFilter(PropertyFilter::class)]
 class Product implements PimSyncableInterface
@@ -139,6 +142,34 @@ class Product implements PimSyncableInterface
     #[ORM\Column(length: 255, nullable: true)]
     #[Groups(['product:read', 'product:write'])]
     private ?string $statistic = null;
+
+    /**
+     * Vehicle the part belongs to, sourced from the PIM (cars_family attributes).
+     * Used to group products into "cars" on the manual-entry routes.
+     */
+    #[ORM\Column(length: 64, nullable: true)]
+    #[Groups(['product:read', 'product:write', 'product:list'])]
+    private ?string $vehicleMake = null;
+
+    #[ORM\Column(length: 64, nullable: true)]
+    #[Groups(['product:read', 'product:write', 'product:list'])]
+    private ?string $vehicleModel = null;
+
+    #[ORM\Column(length: 16, nullable: true)]
+    #[Groups(['product:read', 'product:write', 'product:list'])]
+    private ?string $yearFrom = null;
+
+    #[ORM\Column(length: 16, nullable: true)]
+    #[Groups(['product:read', 'product:write', 'product:list'])]
+    private ?string $yearTo = null;
+
+    /**
+     * Module / module-category for the part (e.g. cars_engine, cars_brakes).
+     * Mirrored from the first PIM category on the product.
+     */
+    #[ORM\Column(length: 64, nullable: true)]
+    #[Groups(['product:read', 'product:write', 'product:list'])]
+    private ?string $primaryCategoryCode = null;
 
     #[ORM\ManyToOne(targetEntity: MediaItem::class, cascade: ['persist'], inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: true)]
@@ -309,6 +340,61 @@ class Product implements PimSyncableInterface
     {
         $this->statistic = $statistic;
 
+        return $this;
+    }
+
+    public function getVehicleMake(): ?string
+    {
+        return $this->vehicleMake;
+    }
+
+    public function setVehicleMake(?string $vehicleMake): static
+    {
+        $this->vehicleMake = $vehicleMake;
+        return $this;
+    }
+
+    public function getVehicleModel(): ?string
+    {
+        return $this->vehicleModel;
+    }
+
+    public function setVehicleModel(?string $vehicleModel): static
+    {
+        $this->vehicleModel = $vehicleModel;
+        return $this;
+    }
+
+    public function getYearFrom(): ?string
+    {
+        return $this->yearFrom;
+    }
+
+    public function setYearFrom(?string $yearFrom): static
+    {
+        $this->yearFrom = $yearFrom;
+        return $this;
+    }
+
+    public function getYearTo(): ?string
+    {
+        return $this->yearTo;
+    }
+
+    public function setYearTo(?string $yearTo): static
+    {
+        $this->yearTo = $yearTo;
+        return $this;
+    }
+
+    public function getPrimaryCategoryCode(): ?string
+    {
+        return $this->primaryCategoryCode;
+    }
+
+    public function setPrimaryCategoryCode(?string $code): static
+    {
+        $this->primaryCategoryCode = $code;
         return $this;
     }
 
